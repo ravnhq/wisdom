@@ -41,12 +41,17 @@ To enable blocking, click the toggle in the bottom-left corner of the new tab pa
 ## Building
 
 ```bash
-# Chrome, Edge, Brave, Arc
+# Build Chrome, Edge, Brave, Arc
 pnpm build
 
-# Firefox
+# Build Firefox
 pnpm build:firefox
+
+# Create store-ready Chrome, Firefox, and Firefox source ZIPs
+pnpm zip:all
 ```
+
+Release packaging and automatic store submission are documented in [`docs/RELEASE.md`](docs/RELEASE.md). Store privacy answers are documented in [`docs/STORE_PRIVACY.md`](docs/STORE_PRIVACY.md).
 
 ## Installing the unpacked extension
 

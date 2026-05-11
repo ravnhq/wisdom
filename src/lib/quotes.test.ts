@@ -25,9 +25,7 @@ describe("quote selection", () => {
 
   it("selectNextQuote only returns visible quotes", () => {
     const hidden = updateHiddenQuoteIds([], quotes[1].id, false);
-    const results = Array.from({ length: 20 }, () =>
-      selectNextQuote(quotes, hidden, quotes[0].id),
-    );
+    const results = Array.from({ length: 20 }, () => selectNextQuote(quotes, hidden, quotes[0].id));
     expect(results.every((q) => q.id !== quotes[1].id)).toBe(true);
   });
 

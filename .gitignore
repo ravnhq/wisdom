@@ -7,4 +7,4 @@ dist
 .DS_Store
 .env
 node_modules
-agent-os/specs
+agent-os/specs/
