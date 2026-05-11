@@ -30,5 +30,453 @@
     "explanation": "Small protected sessions compound into trust in your own attention and follow-through.",
     "tags": ["attention", "discipline"],
     "defaultVisible": true
+  },
+  {
+    "id": "shape-yourself",
+    "text": "What person would I become if I took responsibility for shaping myself?",
+    "author": "Dave",
+    "explanation": "Most people let circumstance sculpt them. This question flips that — it treats identity as a project you own, not a condition that happens to you.",
+    "tags": ["growth", "accountability", "identity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "approval-auditioning",
+    "text": "Whose approval am I auditioning for?",
+    "author": "Dave",
+    "explanation": "A sharp check on whether your choices are truly yours or a performance for an audience that may not even be watching.",
+    "tags": ["self-awareness", "authenticity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "ai-move-faster",
+    "text": "Use AI to move faster, not to be absent. Show your intent, assumptions, and recommendation or it's just a button press. I don't need help pressing buttons; I need your judgment.",
+    "author": "Dave",
+    "explanation": "AI amplifies output but cannot replace professional judgment. Your value is in the thinking before and after the tool, not the tool itself.",
+    "tags": ["engineering", "ai", "judgment", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "kindness-strength-control",
+    "text": "Kindness is strength under control. Cruelty is weakness or strength without control. Indifference is control without a soul.",
+    "author": "Dave",
+    "explanation": "A precise taxonomy of character. Real strength shows up as warmth, not dominance — and care is what separates discipline from coldness.",
+    "tags": ["character", "leadership", "empathy"],
+    "defaultVisible": true
+  },
+  {
+    "id": "taught-yourself",
+    "text": "What have you taught yourself in the last six months that nobody required you to learn?",
+    "author": "Dave",
+    "explanation": "Voluntary learning signals genuine curiosity. If every skill on your list was assigned, you are developing someone else's agenda, not your own.",
+    "tags": ["growth", "learning", "curiosity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "arguing-pointless",
+    "text": "Arguing with me is pointless, I know I was wrong 5 minutes ago. Now I am just trying to make you mad.",
+    "author": "Dave",
+    "explanation": "A wry reminder that some debates have already moved past the facts. Knowing when to exit a conversation is a skill.",
+    "tags": ["humor", "self-awareness", "communication"],
+    "defaultVisible": true
+  },
+  {
+    "id": "english-abstraction-layer",
+    "text": "Has English effectively become the primary abstraction layer for software in the AI era?",
+    "author": "Dave",
+    "explanation": "As natural language drives more of what code does, fluency in clear communication may matter as much as fluency in any programming language.",
+    "tags": ["engineering", "ai", "communication"],
+    "defaultVisible": true
+  },
+  {
+    "id": "love-given-away",
+    "text": "Love is the only thing that gets more valuable when it's repeatedly given away.",
+    "author": "Dave",
+    "explanation": "Unlike time or money, love compounds through generosity. Giving it freely does not deplete it — it deepens it.",
+    "tags": ["relationships", "generosity", "purpose"],
+    "defaultVisible": true
+  },
+  {
+    "id": "improving-not-proving",
+    "text": "Focus on improving not proving.",
+    "author": "Dave",
+    "explanation": "Proving is about the audience; improving is about the work. One drains energy, the other builds it.",
+    "tags": ["focus", "growth", "ego"],
+    "defaultVisible": true
+  },
+  {
+    "id": "earlier-kinder-smarter",
+    "text": "Always be a little earlier, kinder, and smarter than is necessary.",
+    "author": "Dave",
+    "explanation": "Doing slightly more than the minimum in punctuality, warmth, and preparation is how you build a reputation that precedes you.",
+    "tags": ["character", "discipline", "professionalism"],
+    "defaultVisible": true
+  },
+  {
+    "id": "code-cheaper-raise-sights",
+    "text": "When code gets cheaper to produce, organizations don't reduce the amount of builds; they raise their sights and do even more.",
+    "author": "Dave",
+    "explanation": "Efficiency rarely creates idleness — it creates ambition. As the cost of building falls, the appetite for what to build grows.",
+    "tags": ["engineering", "ai", "productivity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "patient-or-stubborn",
+    "text": "How do I know if I'm being patient (a skill) or stubborn (a flaw)?",
+    "author": "Dave",
+    "explanation": "Patience stays open to evidence; stubbornness ignores it. The question is worth asking regularly — the honest answer is often humbling.",
+    "tags": ["self-awareness", "growth", "resilience"],
+    "defaultVisible": true
+  },
+  {
+    "id": "bitter-or-better",
+    "text": "Spend time with the bitter and become bitter, spend time with the best and become better.",
+    "author": "Dave",
+    "explanation": "Environment shapes mindset more than most people admit. Your default mood tends to drift toward the average of those around you.",
+    "tags": ["relationships", "growth", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "weak-conviction",
+    "text": "Imagine having such weak conviction in your beliefs that you are open to persuasion and debate.",
+    "author": "Dave",
+    "explanation": "Delivered with irony — being genuinely open to changing your mind is a sign of intellectual strength, not weakness.",
+    "tags": ["humor", "self-awareness", "learning"],
+    "defaultVisible": true
+  },
+  {
+    "id": "mentally-sharp-blessing",
+    "text": "A job that keeps you mentally sharp is a blessing.",
+    "author": "Dave",
+    "explanation": "Not all work is created equal. A role that challenges your thinking is worth more than a comfortable one that lets your mind go soft.",
+    "tags": ["work", "growth", "gratitude"],
+    "defaultVisible": true
+  },
+  {
+    "id": "choose-to-become",
+    "text": "I am not what happened to me, I am what I choose to become.",
+    "author": "Dave",
+    "explanation": "Your history is fixed; your trajectory is not. Identity is less about origin and more about the choices you keep making.",
+    "tags": ["resilience", "identity", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "showing-up",
+    "text": "The most underrated skill in engineering: showing up when you don't feel like it.",
+    "author": "Dave",
+    "explanation": "Talent is common; consistency is rare. The engineers who compound the most are often the ones who simply kept going when motivation was absent.",
+    "tags": ["engineering", "discipline", "resilience"],
+    "defaultVisible": true
+  },
+  {
+    "id": "thinking-about-thinking",
+    "text": "Thinking about thinking improves thinking.",
+    "author": "Dave",
+    "explanation": "Metacognition — stepping back to examine how you reason — is one of the highest-leverage habits a problem-solver can build.",
+    "tags": ["learning", "clarity", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "leading-by-example",
+    "text": "Like it or not, you are always leading by example. Every action, every word and every silence is an example. Be the kind of leader you would follow.",
+    "author": "Dave",
+    "explanation": "Leadership is not a title — it is a constant broadcast. What you tolerate, celebrate, and ignore all set the standard for those watching.",
+    "tags": ["leadership", "character", "accountability"],
+    "defaultVisible": true
+  },
+  {
+    "id": "leaders-want-progress",
+    "text": "Leaders don't want praise, they want progress.",
+    "author": "Dave",
+    "explanation": "Compliments feel good but move nothing forward. Leaders measure success by momentum, not applause.",
+    "tags": ["leadership", "focus", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "leaders-want-leaders",
+    "text": "Leaders don't want more followers, they want more leaders.",
+    "author": "Dave",
+    "explanation": "The goal of good leadership is to make itself unnecessary — to grow people who can lead others rather than depend on you.",
+    "tags": ["leadership", "growth", "mentorship"],
+    "defaultVisible": true
+  },
+  {
+    "id": "best-engineers-tolerate",
+    "text": "The best engineers tolerate uncomfortable truths, change and uncertainty but have little patience for bullshit, mediocrity and clowns.",
+    "author": "Dave",
+    "explanation": "Resilience and high standards are not opposites. The engineers who last embrace ambiguity in hard problems and reject it in professional culture.",
+    "tags": ["engineering", "character", "standards"],
+    "defaultVisible": true
+  },
+  {
+    "id": "engineers-are-human",
+    "text": "People tend to forget that engineers are human. Often, these people are the engineers themselves.",
+    "author": "Dave",
+    "explanation": "The pressure to be purely logical can cause engineers to suppress the very human traits — doubt, fatigue, emotion — that signal when something is wrong.",
+    "tags": ["engineering", "empathy", "self-awareness"],
+    "defaultVisible": true
+  },
+  {
+    "id": "errors-normal-behavior",
+    "text": "Errors are normal human behavior. Design systems that minimize their consequences.",
+    "author": "Dave",
+    "explanation": "Blaming people for mistakes changes nothing. Designing systems with guardrails, defaults, and recovery paths changes everything.",
+    "tags": ["engineering", "systems", "accountability"],
+    "defaultVisible": true
+  },
+  {
+    "id": "stop-blaming-start-asking",
+    "text": "Stop asking who dropped the ball and start asking why are they juggling.",
+    "author": "Dave",
+    "explanation": "Individual blame is the laziest form of post-mortem. The real question is always what system, pressure, or process created an impossible workload in the first place.",
+    "tags": ["leadership", "systems", "accountability"],
+    "defaultVisible": true
+  },
+  {
+    "id": "three-unhelpful-phrases",
+    "text": "Three unhelpful phrases: We have always done it that way. This is just who I am. I do not have the time.",
+    "author": "Dave",
+    "explanation": "Each phrase closes a door. The first resists change, the second resists growth, and the third resists priority. All three are choices dressed as facts.",
+    "tags": ["growth", "accountability", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "social-media-vs-outdoors",
+    "text": "I have never finished a social media session and felt better about myself or future. I have never gone for an adventure in the outdoors and felt bad about myself or the future.",
+    "author": "Dave",
+    "explanation": "A simple empirical observation that cuts through the debate. Track your mood after each — the data will speak for itself.",
+    "tags": ["focus", "wellbeing", "clarity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "learn-unlearn",
+    "text": "New engineers have a lot to learn, old engineers have a lot to unlearn.",
+    "author": "Dave",
+    "explanation": "Experience creates expertise and blindspots in equal measure. The hardest work in a long career is identifying which of your certainties are now liabilities.",
+    "tags": ["engineering", "growth", "learning"],
+    "defaultVisible": true
+  },
+  {
+    "id": "magic-in-avoided-work",
+    "text": "The magic you are looking for is in the work you are avoiding.",
+    "author": "Dave",
+    "explanation": "The task you keep deferring usually holds the breakthrough. Avoidance is a reliable signal pointing directly at the most important thing.",
+    "tags": ["focus", "discipline", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "engineering-health",
+    "text": "If you can solve difficult engineering challenges, you can solve the problem of eating well and regular exercise for a lifetime of health.",
+    "author": "Dave",
+    "explanation": "The same systems thinking that cracks hard technical problems applies to personal habits. The method is the same — only the domain changes.",
+    "tags": ["engineering", "discipline", "wellbeing"],
+    "defaultVisible": true
+  },
+  {
+    "id": "confidence-embarrassment",
+    "text": "You cannot build confidence by avoiding embarrassment.",
+    "author": "Dave",
+    "explanation": "Confidence is built through repeated exposure to risk and recovery, not through managing your image. Every embarrassing moment you survive expands what you believe you can handle.",
+    "tags": ["growth", "resilience", "courage"],
+    "defaultVisible": true
+  },
+  {
+    "id": "cause-vs-correct",
+    "text": "You did not have to cause it to correct it. It is not your fault, but it is your project.",
+    "author": "Dave",
+    "explanation": "Ownership is not about blame — it is about agency. You can choose to fix what you did not break, and that choice defines the kind of professional you are.",
+    "tags": ["accountability", "leadership", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "response-to-mistake",
+    "text": "Your response to a mistake, not the mistake itself, is what you will be judged for.",
+    "author": "Dave",
+    "explanation": "Errors are inevitable and forgettable. How you handle them — with honesty, speed, and a plan — is the lasting impression.",
+    "tags": ["accountability", "character", "resilience"],
+    "defaultVisible": true
+  },
+  {
+    "id": "cant-quit",
+    "text": "Some days you can't win. Some days you can't lose. Everyday you can't quit.",
+    "author": "Dave",
+    "explanation": "Results are outside your control; showing up is not. The only constant you own is the decision to stay in the game.",
+    "tags": ["resilience", "discipline", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "intensity-calm",
+    "text": "Learn with intensity, respond to emergencies calmly.",
+    "author": "Dave",
+    "explanation": "Invert the usual pattern. Most people are casual learners and panicked in crises. The best practitioners are the opposite.",
+    "tags": ["learning", "discipline", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "act-like-leader",
+    "text": "Don't wait until you are promoted to start acting like a leader.",
+    "author": "Dave",
+    "explanation": "The promotion follows the behavior — it does not precede it. People who wait for the title first usually wait a very long time.",
+    "tags": ["leadership", "growth", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "enthusiasm-iq",
+    "text": "Being enthusiastic is worth 25 IQ points.",
+    "author": "Dave",
+    "explanation": "Energy and genuine interest carry a project further than raw intelligence alone. Enthusiasm is contagious, recruits allies, and sustains effort through obstacles.",
+    "tags": ["mindset", "work", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "teach-what-you-learned",
+    "text": "Teach others what you should have been taught.",
+    "author": "Dave",
+    "explanation": "You cannot fix your own onboarding, but you can fix someone else's. Pass forward the hard-won lessons nobody handed you.",
+    "tags": ["mentorship", "leadership", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "train-on-fear",
+    "text": "Whatever scares you, go train on it.",
+    "author": "Dave",
+    "explanation": "Fear in a professional context is almost always a map. It points directly at the gap between where you are and where you need to be.",
+    "tags": ["growth", "courage", "discipline"],
+    "defaultVisible": true
+  },
+  {
+    "id": "lights-not-on-you",
+    "text": "The lights are not always on you. Other people do not notice your flaws as much as you think they do. They are too busy judging their own imperfections to notice yours.",
+    "author": "Dave",
+    "explanation": "The spotlight effect inflates how visible our mistakes feel. Most of your self-consciousness is an audience of one — yourself.",
+    "tags": ["self-awareness", "courage", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "you-vs-you",
+    "text": "Every challenge is you versus you.",
+    "author": "Dave",
+    "explanation": "The opponent that holds you back most consistently is not a competitor or a circumstance — it is your own resistance, doubt, and avoidance.",
+    "tags": ["mindset", "discipline", "resilience"],
+    "defaultVisible": true
+  },
+  {
+    "id": "be-yourself-no-clones",
+    "text": "Always be yourself. A company full of clones is boring.",
+    "author": "Dave",
+    "explanation": "Diverse thinking, backgrounds, and personalities are not just nice to have — they are the engine of better decisions and more durable teams.",
+    "tags": ["authenticity", "leadership", "character"],
+    "defaultVisible": true
+  },
+  {
+    "id": "unknown-mentors",
+    "text": "Most of my mentors do not know I exist. Think of how many people you could be mentoring unknowingly.",
+    "author": "Dave",
+    "explanation": "Your public work, decisions, and behavior influence people you will never meet. Act accordingly.",
+    "tags": ["mentorship", "leadership", "purpose"],
+    "defaultVisible": true
+  },
+  {
+    "id": "dont-expect-knowledge",
+    "text": "Do not expect a new team member or inexperienced clients to have the knowledge it took you years to acquire.",
+    "author": "Dave",
+    "explanation": "Expertise is invisible to experts. Patience with beginners requires actively remembering how much you once did not know.",
+    "tags": ["mentorship", "empathy", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "everything-must-be-said-again",
+    "text": "Everything that needs to be said has already been said. But since no one was listening, everything must be said again.",
+    "author": "Dave",
+    "explanation": "Good ideas rarely fail because they were never spoken. They fail because repetition felt redundant and no one kept saying the important thing until it landed.",
+    "tags": ["communication", "leadership", "purpose"],
+    "defaultVisible": true
+  },
+  {
+    "id": "main-thing",
+    "text": "The main thing is to keep the main thing the main thing.",
+    "author": "Dave",
+    "explanation": "Priorities drift under the pressure of urgency and noise. Protecting focus on what matters most is a daily, active choice — not a one-time decision.",
+    "tags": ["focus", "clarity", "discipline"],
+    "defaultVisible": true
+  },
+  {
+    "id": "wisdom-prevention",
+    "text": "Wisdom is prevention.",
+    "author": "Dave",
+    "explanation": "The highest form of problem-solving is making problems unnecessary before they start. Most firefighting could have been avoided by better thinking upstream.",
+    "tags": ["clarity", "systems", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "tech-oath-growth",
+    "text": "Choosing a career in tech is like taking an oath to lifelong growth.",
+    "author": "Dave",
+    "explanation": "The field does not stand still, and neither can the people in it. Entering tech means accepting that learning is not a phase — it is the job.",
+    "tags": ["engineering", "growth", "learning"],
+    "defaultVisible": true
+  },
+  {
+    "id": "code-does-what-you-tell-it",
+    "text": "How can you possibly have problems with your code? It literally does whatever you tell it.",
+    "author": "Dave",
+    "explanation": "Said with irony — the joke lands because it is true. Every bug is a precise record of what you actually communicated, not what you intended.",
+    "tags": ["engineering", "humor", "accountability"],
+    "defaultVisible": true
+  },
+  {
+    "id": "average-five-people",
+    "text": "You are the average of the five people you most associate with.",
+    "author": "Dave",
+    "explanation": "Standards, habits, and ambitions are contagious. The people you spend the most time with quietly calibrate what feels normal and possible to you.",
+    "tags": ["relationships", "growth", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "best-stories-worst-days",
+    "text": "Some of your best stories will come from your worst days.",
+    "author": "Dave",
+    "explanation": "The hardest experiences, in hindsight, often become the most instructive and the most memorable. Difficulty is usually where character is revealed.",
+    "tags": ["resilience", "purpose", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "behave-speak-work",
+    "text": "Behave as if the boss was watching, speak as if your mom was listening, work as if the new guy was watching, and do it all well because you are watching.",
+    "author": "Dave",
+    "explanation": "Integrity is consistency when no one is looking. The highest standard is the one you hold yourself to — not the one imposed by an audience.",
+    "tags": ["character", "accountability", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "job-to-help",
+    "text": "Your job is to help people. Whatever your position, this is your job.",
+    "author": "Dave",
+    "explanation": "Strip away every job title and the core function is the same. Service to others is not a department — it is the foundation of every role.",
+    "tags": ["purpose", "leadership", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "discovering-wrong",
+    "text": "Discovering you are wrong is a wonderful moment, not an awful one.",
+    "author": "Dave",
+    "explanation": "Being corrected means you now know something you did not before. That is strictly an improvement — treat it like one.",
+    "tags": ["learning", "growth", "self-awareness"],
+    "defaultVisible": true
+  },
+  {
+    "id": "never-too-old",
+    "text": "Never too old to ask questions. Never too strong to ask for help.",
+    "author": "Dave",
+    "explanation": "Asking for help is not a confession of weakness — it is the fastest path through a problem. The people who refuse to ask pay the cost in time and ego.",
+    "tags": ["learning", "humility", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "celebrate-strength",
+    "text": "You made it this far. Celebrate your strength.",
+    "author": "Dave",
+    "explanation": "Progress is easy to discount once it becomes your baseline. Pausing to acknowledge how far you have come is not vanity — it is fuel.",
+    "tags": ["resilience", "gratitude", "mindset"],
+    "defaultVisible": true
   }
 ]
