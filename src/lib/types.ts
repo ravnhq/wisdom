@@ -29,6 +29,7 @@ export type WisdomSettings = {
   hiddenQuoteIds: string[];
   currentQuoteId: string;
   currentWallpaperId: string;
+  theme: "dark" | "light";
 };
 
 export type LoadState<T> =

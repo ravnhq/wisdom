@@ -23,29 +23,31 @@ export function QuoteCard({
   return (
     <section
       aria-label="Inspirational phrase"
-      className={`rounded-3xl border border-white/25 bg-white/85 p-6 text-slate-950 shadow-2xl backdrop-blur-xl ${
+      className={`rounded-3xl border border-white/25 bg-white/85 p-6 text-slate-950 shadow-2xl backdrop-blur-xl dark:border-[rgba(0,201,167,0.18)] dark:bg-[#0D2A28]/85 dark:text-[#FAF3E0] ${
         compact ? "max-w-5xl" : "max-w-3xl"
       }`}
     >
-      <div className="border-l-4 border-amber-700 pl-5">
+      <div className="border-l-4 border-[#008F7A] pl-5 dark:border-[#00C9A7]">
         <p className={`${compact ? "text-xl" : "text-3xl"} font-semibold leading-tight`}>
           {quote.text}
         </p>
-        <p className="mt-4 text-lg font-medium text-slate-600">{quote.author}</p>
+        <p className="mt-4 text-lg font-medium text-[#3D7570] dark:text-[#8ECCC4]">
+          {quote.author}
+        </p>
       </div>
 
       {showExplanation ? (
-        <p className="mt-5 rounded-2xl bg-amber-50 p-4 text-sm leading-6 text-slate-700">
+        <p className="mt-5 rounded-2xl bg-[#F0F9F7] p-4 text-sm leading-6 text-[#0A3530] dark:bg-[#0A2422] dark:text-[#8ECCC4]">
           {quote.explanation}
         </p>
       ) : null}
 
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <Button onClick={onNext}>Next quote &gt;</Button>
-        <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-slate-700">
+        <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-[#3D7570] dark:text-[#8ECCC4]">
           <input
             checked={showInFuture}
-            className="h-5 w-5 accent-amber-700"
+            className="h-5 w-5 accent-teal-600 dark:accent-teal-400"
             onChange={(event) => onShowInFutureChange(event.target.checked)}
             type="checkbox"
           />

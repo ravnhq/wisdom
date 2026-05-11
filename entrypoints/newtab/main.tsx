@@ -1,9 +1,10 @@
 import { Settings } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { FocusToggle } from "../../src/components/FocusToggle";
 import { NameCapture } from "../../src/components/NameCapture";
 import { QuoteCard } from "../../src/components/QuoteCard";
+import { ThemeToggle } from "../../src/components/ThemeToggle";
 import { browser } from "../../src/lib/browser";
 import { getWallpaperById, quotes } from "../../src/lib/data";
 import { selectNextQuote, selectQuote, updateHiddenQuoteIds } from "../../src/lib/quotes";
@@ -11,9 +12,10 @@ import { formatTime, getGreeting } from "../../src/lib/time";
 import { useSettings } from "../../src/lib/useSettings";
 import "../../src/styles/global.css";
 
-function NewTabApp() {
+export function NewTabApp() {
   const { state, setSettings } = useSettings();
   const [now, setNow] = useState(() => new Date());
+  const initialAdvanceDone = useRef(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(new Date()), 1_000);
@@ -21,6 +23,24 @@ function NewTabApp() {
   }, []);
 
   const settings = state.status === "ready" ? state.data : null;
+  const theme = settings?.theme ?? "dark";
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme !== "light");
+  }, [theme]);
+
+  // On the very first load, if the saved current quote was hidden in a previous
+  // session, silently advance to a random visible quote so the user never sees
+  // a quote they already dismissed.
+  useEffect(() => {
+    if (state.status !== "ready" || initialAdvanceDone.current) return;
+    initialAdvanceDone.current = true;
+    const s = state.data;
+    if (!s.hiddenQuoteIds.includes(s.currentQuoteId)) return;
+    const next = selectNextQuote(quotes, s.hiddenQuoteIds, s.currentQuoteId);
+    void setSettings({ ...s, currentQuoteId: next.id });
+  }, [state, setSettings]);
+
   const quote = useMemo(() => {
     if (!settings) return quotes[0];
     return selectQuote(quotes, settings.hiddenQuoteIds, settings.currentQuoteId);
@@ -33,7 +53,7 @@ function NewTabApp() {
 
   if (state.status === "loading") {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 text-white">
+      <main className="grid min-h-screen place-items-center bg-[#071C1A] text-white">
         Loading Wisdom...
       </main>
     );
@@ -41,7 +61,7 @@ function NewTabApp() {
 
   if (state.status === "error" || !settings) {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 p-6 text-white">
+      <main className="grid min-h-screen place-items-center bg-[#071C1A] p-6 text-white">
         <p className="rounded-2xl bg-white/10 p-6">
           Wisdom could not load settings. Try reloading.
         </p>
@@ -69,14 +89,20 @@ function NewTabApp() {
               {settings.userName ? `, ${settings.userName}` : ""}.
             </h1>
           </div>
-          <button
-            aria-label="Open settings"
-            className="rounded-full bg-white/15 p-3 text-white shadow-lg backdrop-blur transition hover:bg-white/25"
-            onClick={openOptions}
-            type="button"
-          >
-            <Settings aria-hidden="true" />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle
+              onChange={(theme) => void setSettings({ ...settings, theme })}
+              theme={settings.theme}
+            />
+            <button
+              aria-label="Open settings"
+              className="rounded-full bg-white/15 p-3 text-white shadow-lg backdrop-blur transition hover:bg-white/25"
+              onClick={openOptions}
+              type="button"
+            >
+              <Settings aria-hidden="true" />
+            </button>
+          </div>
         </header>
 
         <div className="grid flex-1 place-items-center py-8">
@@ -121,4 +147,7 @@ function NewTabApp() {
   );
 }
 
-createRoot(document.getElementById("root") as HTMLElement).render(<NewTabApp />);
+const rootEl = document.getElementById("root");
+if (rootEl) {
+  createRoot(rootEl).render(<NewTabApp />);
+}

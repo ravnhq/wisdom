@@ -12,8 +12,12 @@ export function selectQuote(
   hiddenQuoteIds: string[],
   currentQuoteId = DEFAULT_QUOTE_ID,
 ): QuoteRecord {
+  // Always honour the saved currentQuoteId even if the user hid it later —
+  // hiding a quote only removes it from future navigation, not the current view.
+  const exact = quotes.find((q) => q.id === currentQuoteId);
+  if (exact) return exact;
   const visible = getVisibleQuotes(quotes, hiddenQuoteIds);
-  return visible.find((quote) => quote.id === currentQuoteId) ?? visible[0] ?? quotes[0];
+  return visible[0] ?? quotes[0];
 }
 
 export function selectNextQuote(
@@ -22,9 +26,10 @@ export function selectNextQuote(
   currentQuoteId: string,
 ): QuoteRecord {
   const visible = getVisibleQuotes(quotes, hiddenQuoteIds);
-  const currentIndex = visible.findIndex((quote) => quote.id === currentQuoteId);
-  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % visible.length : 0;
-  return visible[nextIndex] ?? quotes[0];
+  // Exclude the current quote so the same one never appears twice in a row.
+  const candidates = visible.filter((q) => q.id !== currentQuoteId);
+  const pool = candidates.length > 0 ? candidates : visible;
+  return pool[Math.floor(Math.random() * pool.length)] ?? quotes[0];
 }
 
 export function updateHiddenQuoteIds(

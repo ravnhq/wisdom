@@ -1,6 +1,7 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Button } from "../../src/components/Button";
+import { ThemeToggle } from "../../src/components/ThemeToggle";
 import { normalizeBlockedDomains } from "../../src/lib/blocking";
 import { quotes } from "../../src/lib/data";
 import { updateHiddenQuoteIds } from "../../src/lib/quotes";
@@ -9,22 +10,38 @@ import "../../src/styles/global.css";
 
 function OptionsApp() {
   const { state, setSettings } = useSettings();
-  const [draftDomains, setDraftDomains] = useState("");
+  const [draftDomains, setDraftDomains] = useState<string | null>(null);
+
+  const theme = state.status === "ready" ? state.data.theme : "dark";
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme !== "light");
+  }, [theme]);
+
+  useEffect(() => {
+    if (state.status === "ready" && draftDomains === null) {
+      setDraftDomains(state.data.blockedDomains.join("\n"));
+    }
+  }, [state, draftDomains]);
 
   if (state.status === "loading") {
     return (
-      <main className="min-h-screen bg-slate-100 p-8 text-slate-950">Loading settings...</main>
+      <main className="min-h-screen bg-[#FAF3E0] p-8 text-[#0A3530] dark:bg-[#071C1A] dark:text-[#FAF3E0]">
+        Loading settings...
+      </main>
     );
   }
 
   if (state.status === "error") {
     return (
-      <main className="min-h-screen bg-slate-100 p-8 text-slate-950">Settings could not load.</main>
+      <main className="min-h-screen bg-[#FAF3E0] p-8 text-[#0A3530] dark:bg-[#071C1A] dark:text-[#FAF3E0]">
+        Settings could not load.
+      </main>
     );
   }
 
   const settings = state.data;
-  const domainText = draftDomains || settings.blockedDomains.join("\n");
+  const domainText = draftDomains ?? settings.blockedDomains.join("\n");
 
   function saveDomains(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,35 +52,51 @@ function OptionsApp() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-100 px-6 py-10 text-slate-950">
+    <main className="min-h-screen bg-[#FAF3E0] px-6 py-10 text-[#0A3530] dark:bg-[#071C1A] dark:text-[#FAF3E0]">
       <div className="mx-auto max-w-4xl space-y-8">
-        <header>
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-700">Wisdom</p>
-          <h1 className="mt-3 text-4xl font-bold">Settings</h1>
-          <p className="mt-2 text-slate-600">All settings stay local to this browser extension.</p>
+        <header className="flex items-start justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-3">
+              <img alt="Wisdom" className="h-8 w-auto" src="/logo.png" />
+              <p className="text-sm uppercase tracking-[0.3em] text-[#008F7A] dark:text-[#00C9A7]">
+                Wisdom
+              </p>
+            </div>
+            <h1 className="mt-3 text-4xl font-bold">Settings</h1>
+            <p className="mt-2 text-[#3D7570] dark:text-[#8ECCC4]">
+              All settings stay local to this browser extension.
+            </p>
+          </div>
+          <ThemeToggle
+            onChange={(nextTheme) => void setSettings({ ...settings, theme: nextTheme })}
+            theme={settings.theme}
+          />
         </header>
 
-        <section className="rounded-3xl bg-white p-6 shadow-sm">
+        <section className="rounded-3xl border border-[#A8D8D0] bg-white p-6 shadow-sm dark:border-[rgba(0,201,167,0.18)] dark:bg-[#0D2A28]">
           <h2 className="text-2xl font-semibold">Profile</h2>
-          <label className="mt-4 block text-sm font-medium" htmlFor="userName">
+          <label
+            className="mt-4 block text-sm font-medium text-[#3D7570] dark:text-[#8ECCC4]"
+            htmlFor="userName"
+          >
             Name
           </label>
           <input
-            className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3"
+            className="mt-2 w-full rounded-xl border border-[#A8D8D0] bg-white px-4 py-3 text-[#0A3530] dark:border-[rgba(0,201,167,0.25)] dark:bg-[#071C1A] dark:text-[#FAF3E0]"
             id="userName"
             onChange={(event) => void setSettings({ ...settings, userName: event.target.value })}
             value={settings.userName}
           />
         </section>
 
-        <section className="rounded-3xl bg-white p-6 shadow-sm">
+        <section className="rounded-3xl border border-[#A8D8D0] bg-white p-6 shadow-sm dark:border-[rgba(0,201,167,0.18)] dark:bg-[#0D2A28]">
           <h2 className="text-2xl font-semibold">Blocked sites</h2>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-sm text-[#3D7570] dark:text-[#8ECCC4]">
             One domain per line. Blocking only applies while focus mode is on.
           </p>
           <form onSubmit={saveDomains}>
             <textarea
-              className="mt-4 min-h-48 w-full rounded-xl border border-slate-300 px-4 py-3 font-mono text-sm"
+              className="mt-4 min-h-48 w-full rounded-xl border border-[#A8D8D0] bg-white px-4 py-3 font-mono text-sm text-[#0A3530] dark:border-[rgba(0,201,167,0.25)] dark:bg-[#071C1A] dark:text-[#FAF3E0]"
               onChange={(event) => setDraftDomains(event.target.value)}
               value={domainText}
             />
@@ -73,17 +106,17 @@ function OptionsApp() {
           </form>
         </section>
 
-        <section className="rounded-3xl bg-white p-6 shadow-sm">
+        <section className="rounded-3xl border border-[#A8D8D0] bg-white p-6 shadow-sm dark:border-[rgba(0,201,167,0.18)] dark:bg-[#0D2A28]">
           <h2 className="text-2xl font-semibold">Quote preferences</h2>
           <div className="mt-4 space-y-3">
             {quotes.map((quote) => (
               <label
-                className="flex items-start gap-3 rounded-2xl border border-slate-200 p-4"
+                className="flex items-start gap-3 rounded-2xl border border-[#A8D8D0] p-4 dark:border-[rgba(0,201,167,0.18)]"
                 key={quote.id}
               >
                 <input
                   checked={!settings.hiddenQuoteIds.includes(quote.id)}
-                  className="mt-1 h-5 w-5 accent-amber-700"
+                  className="mt-1 h-5 w-5 accent-teal-600 dark:accent-teal-400"
                   onChange={(event) =>
                     void setSettings({
                       ...settings,
@@ -98,7 +131,9 @@ function OptionsApp() {
                 />
                 <span>
                   <span className="block font-semibold">{quote.text}</span>
-                  <span className="mt-1 block text-sm text-slate-600">{quote.author}</span>
+                  <span className="mt-1 block text-sm text-[#3D7570] dark:text-[#8ECCC4]">
+                    {quote.author}
+                  </span>
                 </span>
               </label>
             ))}

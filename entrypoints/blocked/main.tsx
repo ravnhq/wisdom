@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { Button } from "../../src/components/Button";
 import { QuoteCard } from "../../src/components/QuoteCard";
@@ -20,6 +21,12 @@ function BlockedApp() {
   const blockedUrl = params.get("url") ?? "";
   const blockedHost = getHostnameFromUrl(blockedUrl);
   const variant = getBlockedSiteVariant(blockedUrl);
+
+  const theme = state.status === "ready" ? state.data.theme : "dark";
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme !== "light");
+  }, [theme]);
 
   if (state.status !== "ready") {
     return (

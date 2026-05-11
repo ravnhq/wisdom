@@ -35,7 +35,7 @@ export function NameCapture({ onSave }: NameCaptureProps) {
         className="mt-2 w-full rounded-xl border border-white/30 bg-white/90 px-4 py-3 text-slate-950"
         id="name"
         onChange={(event) => setName(event.target.value)}
-        placeholder="Raul"
+        placeholder="Your name"
         value={name}
       />
       <Button className="mt-6 w-full" type="submit" variant="primary">
