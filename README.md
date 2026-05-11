@@ -87,6 +87,8 @@ pnpm test
 
 Bug reports and pull requests are welcome. For significant changes, open an issue first to discuss what you'd like to change.
 
+For deeper project documentation, contribution guidelines, quote submission guidance, and pipeline details, see the [Wisdom GitHub Wiki](https://github.com/ravnhq/wisdom/wiki).
+
 ## License
 
 MIT, Copyright © 2026 [RAVN](https://ravn.co)
