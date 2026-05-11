@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "wxt",
-    "build": "wxt build",
-    "build:firefox": "wxt build -b firefox",
+    "build": "wxt build && cd .output/chrome-mv3 && zip -r ../wisdom-chrome.zip .",
+    "build:firefox": "wxt build -b firefox && cd .output/firefox-mv3 && zip -r ../wisdom-firefox.zip .",
     "typecheck": "wxt prepare && tsc --noEmit",
     "check": "biome check .",
     "test": "vitest run",
