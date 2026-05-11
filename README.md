@@ -17,15 +17,15 @@
 
 ---
 
-Every time you open a new tab, Wisdom shows you an inspirational quote — written by real people, with a short explanation of why it matters. Turn on Focus Mode and it will silently redirect any site on your blocked list before the page even loads. Your name, theme, blocked sites, and quote preferences all stay in your browser. Nothing leaves your machine.
+Every time you open a new tab, Wisdom shows you an inspirational quote written by real people, with a short explanation of why it matters. Turn on Focus Mode and it will silently redirect any site on your blocked list before the page even loads. Your name, theme, blocked sites, and quote preferences all stay in your browser. Nothing leaves your machine.
 
 ## Features
 
-- **New tab quotes** — a rotating set of quotes, shown randomly, each with an explanation and author
-- **Focus Mode** — toggle-based distraction blocking; redirects blocked sites to a calm interstitial
-- **Blocked site list** — add any domain from the settings page; changes take effect immediately
-- **Light and dark theme** — follows your preference, persisted across sessions
-- **Quote preferences** — hide quotes you don't want to see again from the settings page
+- **New tab quotes:** a rotating set of quotes, shown randomly, each with an explanation and author
+- **Focus Mode:** toggle-based distraction blocking that redirects blocked sites to a calm interstitial
+- **Blocked site list:** add any domain from the settings page; changes take effect immediately
+- **Light and dark theme:** follows your preference, persisted across sessions
+- **Quote preferences:** hide quotes you don't want to see again from the settings page
 
 ## Getting started
 
@@ -72,11 +72,11 @@ pnpm test
 
 ## Tech
 
-- [WXT](https://wxt.dev) — browser extension framework
-- [React](https://react.dev) — UI
-- [Tailwind CSS v4](https://tailwindcss.com) — styling
-- [Zod](https://zod.dev) — settings schema validation
-- [Vitest](https://vitest.dev) + [Testing Library](https://testing-library.com) — unit and component tests
+- [WXT](https://wxt.dev): browser extension framework
+- [React](https://react.dev): UI
+- [Tailwind CSS v4](https://tailwindcss.com): styling
+- [Zod](https://zod.dev): settings schema validation
+- [Vitest](https://vitest.dev) + [Testing Library](https://testing-library.com): unit and component tests
 
 ## Contributing
 
@@ -84,4 +84,4 @@ Bug reports and pull requests are welcome. For significant changes, open an issu
 
 ## License
 
-MIT — Copyright © 2026 [RAVN](https://ravn.co)
+MIT, Copyright © 2026 [RAVN](https://ravn.co)
