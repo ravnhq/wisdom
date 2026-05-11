@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.png" alt="Wisdom logo" width="120" />
+</p>
+
 # Wisdom
 
 A calm focus browser extension with an inspirational new tab page and distraction blocking.

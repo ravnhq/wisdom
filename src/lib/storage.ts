@@ -13,6 +13,7 @@ export const defaultSettings: WisdomSettings = {
   hiddenQuoteIds: [],
   currentQuoteId: DEFAULT_QUOTE_ID,
   currentWallpaperId: DEFAULT_WALLPAPER_ID,
+  theme: "dark",
 };
 
 function sanitizeSettings(value: Partial<WisdomSettings> | undefined): WisdomSettings {

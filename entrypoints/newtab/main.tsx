@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { FocusToggle } from "../../src/components/FocusToggle";
 import { NameCapture } from "../../src/components/NameCapture";
 import { QuoteCard } from "../../src/components/QuoteCard";
+import { ThemeToggle } from "../../src/components/ThemeToggle";
 import { browser } from "../../src/lib/browser";
 import { getWallpaperById, quotes } from "../../src/lib/data";
 import { selectNextQuote, selectQuote, updateHiddenQuoteIds } from "../../src/lib/quotes";
@@ -21,6 +22,12 @@ function NewTabApp() {
   }, []);
 
   const settings = state.status === "ready" ? state.data : null;
+  const theme = settings?.theme ?? "dark";
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme !== "light");
+  }, [theme]);
+
   const quote = useMemo(() => {
     if (!settings) return quotes[0];
     return selectQuote(quotes, settings.hiddenQuoteIds, settings.currentQuoteId);
@@ -33,7 +40,7 @@ function NewTabApp() {
 
   if (state.status === "loading") {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 text-white">
+      <main className="grid min-h-screen place-items-center bg-[#071C1A] text-white">
         Loading Wisdom...
       </main>
     );
@@ -41,7 +48,7 @@ function NewTabApp() {
 
   if (state.status === "error" || !settings) {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 p-6 text-white">
+      <main className="grid min-h-screen place-items-center bg-[#071C1A] p-6 text-white">
         <p className="rounded-2xl bg-white/10 p-6">
           Wisdom could not load settings. Try reloading.
         </p>
@@ -63,20 +70,27 @@ function NewTabApp() {
       <div className="flex min-h-screen flex-col justify-between p-6 sm:p-10">
         <header className="flex items-start justify-between gap-4">
           <div>
+            <img alt="Wisdom" className="mb-3 h-8 w-auto opacity-80" src="/logo.png" />
             <p className="text-6xl font-bold tracking-tight sm:text-8xl">{formatTime(now)}</p>
             <h1 className="mt-3 text-2xl font-semibold sm:text-4xl">
               {getGreeting(now)}
               {settings.userName ? `, ${settings.userName}` : ""}.
             </h1>
           </div>
-          <button
-            aria-label="Open settings"
-            className="rounded-full bg-white/15 p-3 text-white shadow-lg backdrop-blur transition hover:bg-white/25"
-            onClick={openOptions}
-            type="button"
-          >
-            <Settings aria-hidden="true" />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle
+              onChange={(theme) => void setSettings({ ...settings, theme })}
+              theme={settings.theme}
+            />
+            <button
+              aria-label="Open settings"
+              className="rounded-full bg-white/15 p-3 text-white shadow-lg backdrop-blur transition hover:bg-white/25"
+              onClick={openOptions}
+              type="button"
+            >
+              <Settings aria-hidden="true" />
+            </button>
+          </div>
         </header>
 
         <div className="grid flex-1 place-items-center py-8">

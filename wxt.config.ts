@@ -16,6 +16,9 @@ export default defineConfig({
   manifestVersion: 3,
   modules: ["@wxt-dev/module-react"],
   manifest: {
+    icons: {
+      "128": "/logo.png",
+    },
     name: "Wisdom",
     description: "A calm focus extension with inspirational new tabs and distraction blocking.",
     version: "0.1.0",
