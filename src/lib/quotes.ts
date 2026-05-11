@@ -12,8 +12,12 @@ export function selectQuote(
   hiddenQuoteIds: string[],
   currentQuoteId = DEFAULT_QUOTE_ID,
 ): QuoteRecord {
+  // Always honour the saved currentQuoteId even if the user hid it later —
+  // hiding a quote only removes it from future navigation, not the current view.
+  const exact = quotes.find((q) => q.id === currentQuoteId);
+  if (exact) return exact;
   const visible = getVisibleQuotes(quotes, hiddenQuoteIds);
-  return visible.find((quote) => quote.id === currentQuoteId) ?? visible[0] ?? quotes[0];
+  return visible[0] ?? quotes[0];
 }
 
 export function selectNextQuote(
@@ -22,9 +26,23 @@ export function selectNextQuote(
   currentQuoteId: string,
 ): QuoteRecord {
   const visible = getVisibleQuotes(quotes, hiddenQuoteIds);
-  const currentIndex = visible.findIndex((quote) => quote.id === currentQuoteId);
-  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % visible.length : 0;
-  return visible[nextIndex] ?? quotes[0];
+  const currentVisibleIndex = visible.findIndex((q) => q.id === currentQuoteId);
+
+  if (currentVisibleIndex >= 0) {
+    return visible[(currentVisibleIndex + 1) % visible.length] ?? quotes[0];
+  }
+
+  // Current quote is hidden — advance to the first visible quote that comes after it
+  // in the original order, wrapping around if needed.
+  const originalIndex = quotes.findIndex((q) => q.id === currentQuoteId);
+  const visibleSet = new Set(visible.map((q) => q.id));
+  for (let i = originalIndex + 1; i < quotes.length; i++) {
+    if (visibleSet.has(quotes[i].id)) return quotes[i];
+  }
+  for (let i = 0; i < originalIndex; i++) {
+    if (visibleSet.has(quotes[i].id)) return quotes[i];
+  }
+  return visible[0] ?? quotes[0];
 }
 
 export function updateHiddenQuoteIds(

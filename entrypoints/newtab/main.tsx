@@ -12,7 +12,7 @@ import { formatTime, getGreeting } from "../../src/lib/time";
 import { useSettings } from "../../src/lib/useSettings";
 import "../../src/styles/global.css";
 
-function NewTabApp() {
+export function NewTabApp() {
   const { state, setSettings } = useSettings();
   const [now, setNow] = useState(() => new Date());
 
@@ -70,7 +70,6 @@ function NewTabApp() {
       <div className="flex min-h-screen flex-col justify-between p-6 sm:p-10">
         <header className="flex items-start justify-between gap-4">
           <div>
-            <img alt="Wisdom" className="mb-3 h-8 w-auto opacity-80" src="/logo.png" />
             <p className="text-6xl font-bold tracking-tight sm:text-8xl">{formatTime(now)}</p>
             <h1 className="mt-3 text-2xl font-semibold sm:text-4xl">
               {getGreeting(now)}
@@ -135,4 +134,7 @@ function NewTabApp() {
   );
 }
 
-createRoot(document.getElementById("root") as HTMLElement).render(<NewTabApp />);
+const rootEl = document.getElementById("root");
+if (rootEl) {
+  createRoot(rootEl).render(<NewTabApp />);
+}

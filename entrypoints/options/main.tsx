@@ -10,13 +10,19 @@ import "../../src/styles/global.css";
 
 function OptionsApp() {
   const { state, setSettings } = useSettings();
-  const [draftDomains, setDraftDomains] = useState("");
+  const [draftDomains, setDraftDomains] = useState<string | null>(null);
 
   const theme = state.status === "ready" ? state.data.theme : "dark";
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme !== "light");
   }, [theme]);
+
+  useEffect(() => {
+    if (state.status === "ready" && draftDomains === null) {
+      setDraftDomains(state.data.blockedDomains.join("\n"));
+    }
+  }, [state, draftDomains]);
 
   if (state.status === "loading") {
     return (
@@ -35,7 +41,7 @@ function OptionsApp() {
   }
 
   const settings = state.data;
-  const domainText = draftDomains || settings.blockedDomains.join("\n");
+  const domainText = draftDomains ?? settings.blockedDomains.join("\n");
 
   function saveDomains(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
