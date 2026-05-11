@@ -1,0 +1,48 @@
+name: Engineering Task
+description: Track scoped implementation, refactor, test, or maintenance work.
+title: "[Task]: "
+labels: ["task", "needs-triage"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What needs to be accomplished and why?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included and excluded?
+      placeholder: |
+        In scope:
+        - ...
+
+        Out of scope:
+        - ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Concrete checks that must pass before closing.
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation Plan
+      description: Tests, manual checks, or build commands expected for this task.
+      placeholder: pnpm verify
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks Or Dependencies
+      description: Note blockers, sequencing, browser constraints, or rollout risks.
