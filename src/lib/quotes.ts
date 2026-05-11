@@ -26,23 +26,10 @@ export function selectNextQuote(
   currentQuoteId: string,
 ): QuoteRecord {
   const visible = getVisibleQuotes(quotes, hiddenQuoteIds);
-  const currentVisibleIndex = visible.findIndex((q) => q.id === currentQuoteId);
-
-  if (currentVisibleIndex >= 0) {
-    return visible[(currentVisibleIndex + 1) % visible.length] ?? quotes[0];
-  }
-
-  // Current quote is hidden — advance to the first visible quote that comes after it
-  // in the original order, wrapping around if needed.
-  const originalIndex = quotes.findIndex((q) => q.id === currentQuoteId);
-  const visibleSet = new Set(visible.map((q) => q.id));
-  for (let i = originalIndex + 1; i < quotes.length; i++) {
-    if (visibleSet.has(quotes[i].id)) return quotes[i];
-  }
-  for (let i = 0; i < originalIndex; i++) {
-    if (visibleSet.has(quotes[i].id)) return quotes[i];
-  }
-  return visible[0] ?? quotes[0];
+  // Exclude the current quote so the same one never appears twice in a row.
+  const candidates = visible.filter((q) => q.id !== currentQuoteId);
+  const pool = candidates.length > 0 ? candidates : visible;
+  return pool[Math.floor(Math.random() * pool.length)] ?? quotes[0];
 }
 
 export function updateHiddenQuoteIds(

@@ -37,7 +37,7 @@ describe("NewTabApp quote navigation", () => {
     for (const [k, v] of Object.entries(seed)) store.set(k, v);
   });
 
-  it("Next quote button advances to the next quote", async () => {
+  it("Next quote button advances to a different quote", async () => {
     const user = userEvent.setup();
     render(<NewTabApp />);
 
@@ -45,8 +45,8 @@ describe("NewTabApp quote navigation", () => {
 
     await user.click(screen.getByRole("button", { name: /next quote/i }));
 
-    await waitFor(() => screen.getByText(quotes[1].text));
-    expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument();
+    // The original quote should be gone and some other quote should appear.
+    await waitFor(() => expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument());
   });
 
   it("toggling Show this quote in future checkbox stays on the same quote", async () => {
@@ -72,7 +72,6 @@ describe("NewTabApp quote navigation", () => {
   });
 
   it("Next quote skips quotes that are hidden", async () => {
-    // Seed quotes[1] as already hidden so Next Quote from quotes[0] jumps to quotes[2]
     store.set("hiddenQuoteIds", [quotes[1].id]);
 
     const user = userEvent.setup();
@@ -82,7 +81,8 @@ describe("NewTabApp quote navigation", () => {
 
     await user.click(screen.getByRole("button", { name: /next quote/i }));
 
-    await waitFor(() => screen.getByText(quotes[2].text));
+    // The hidden quote must never appear after clicking Next.
+    await waitFor(() => expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument());
     expect(screen.queryByText(quotes[1].text)).not.toBeInTheDocument();
   });
 });
