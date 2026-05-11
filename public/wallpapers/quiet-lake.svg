@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Quiet lake</title>
+  <desc id="desc">A quiet lake with mountains under a warm sky.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7cda4" />
+      <stop offset="0.55" stop-color="#6685a2" />
+      <stop offset="1" stop-color="#1f3651" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)" />
+  <path d="M0 480 L280 260 L510 480 L730 300 L980 490 L1220 250 L1600 500 L1600 1000 L0 1000 Z" fill="#263f5a" opacity="0.85" />
+  <rect y="535" width="1600" height="465" fill="#1b3149" />
+  <path d="M0 590 C280 650 440 540 760 600 C1000 645 1260 560 1600 625 L1600 1000 L0 1000 Z" fill="#254461" opacity="0.75" />
+  <path d="M500 710 C640 690 770 730 900 708" fill="none" stroke="#f7d4a7" stroke-width="10" stroke-linecap="round" opacity="0.35" />
+</svg>

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "maintenance-care",
+    "text": "Our very idea of productivity is premised on the idea of producing something new, whereas we do not tend to see maintenance and care as productive in the same way.",
+    "author": "Jenny Odell",
+    "explanation": "Focus is not only about making more. Sometimes the valuable work is maintaining attention, care, and the conditions that help good work continue.",
+    "tags": ["focus", "care", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "history-yet-made",
+    "text": "There are still many causes worth sacrificing for, so much history yet to be made.",
+    "author": "Michelle Obama",
+    "explanation": "This phrase reframes effort as participation in something bigger than the current distraction or discomfort.",
+    "tags": ["purpose", "resilience"],
+    "defaultVisible": true
+  },
+  {
+    "id": "deep-work",
+    "text": "Clarity about what matters provides clarity about what does not.",
+    "author": "Cal Newport",
+    "explanation": "A focused session begins by making the important work explicit and letting low-value inputs wait.",
+    "tags": ["focus", "clarity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "quiet-courage",
+    "text": "The quiet work you protect today becomes the confidence you rely on tomorrow.",
+    "author": "Wisdom",
+    "explanation": "Small protected sessions compound into trust in your own attention and follow-through.",
+    "tags": ["attention", "discipline"],
+    "defaultVisible": true
+  }
+]

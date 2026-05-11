@@ -1,0 +1,20 @@
+[
+  {
+    "id": "misty-forest",
+    "title": "Misty Forest",
+    "fileName": "misty-forest.svg",
+    "alt": "Layered green hills and soft mist at sunrise",
+    "credit": "Generated local vector asset",
+    "license": "Project asset",
+    "dominantColor": "#214033"
+  },
+  {
+    "id": "quiet-lake",
+    "title": "Quiet Lake",
+    "fileName": "quiet-lake.svg",
+    "alt": "A quiet lake with mountains under a warm sky",
+    "credit": "Generated local vector asset",
+    "license": "Project asset",
+    "dominantColor": "#1f3651"
+  }
+]

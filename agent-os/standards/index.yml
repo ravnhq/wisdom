@@ -1,0 +1,30 @@
+# Agent OS Standards Index
+
+standards:
+  global/code-quality:
+    path: agent-os/standards/global/code-quality.md
+    description: TypeScript quality, module boundaries, error handling, and maintainability standards for a strict but practical MVP codebase.
+
+  frontend/react:
+    path: agent-os/standards/frontend/react.md
+    description: React component design, state management, effects, accessibility, and performance standards for extension UI surfaces.
+
+  frontend/styling:
+    path: agent-os/standards/frontend/styling.md
+    description: Tailwind, shadcn/ui, Lucide React, Sass, visual design, component styling, and motion standards for a polished focus extension.
+
+  extension/architecture:
+    path: agent-os/standards/extension/architecture.md
+    description: WXT, Manifest V3, webextension-polyfill, entrypoint, blocking, storage, and data-flow standards for the browser extension.
+
+  extension/permissions-and-privacy:
+    path: agent-os/standards/extension/permissions-and-privacy.md
+    description: Minimal permissions, local-first privacy, asset handling, user trust, and browser store standards.
+
+  testing/strategy:
+    path: agent-os/standards/testing/strategy.md
+    description: Vitest, React Testing Library, Playwright, CI expectations, and focused testing strategy for the MVP.
+
+  tooling/ci:
+    path: agent-os/standards/tooling/ci.md
+    description: pnpm, TypeScript, Biome, recommended scripts, GitHub Actions, and release readiness standards.
