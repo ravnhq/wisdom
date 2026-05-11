@@ -12,6 +12,8 @@
     "zip:firefox": "wxt zip -b firefox",
     "zip:all": "pnpm zip:chrome && pnpm zip:firefox && pnpm validate:packages",
     "setup:toolchain": "volta install node@22.21.1 pnpm@10.25.0",
+    "setup:toolchain:nvm": "bash -lc 'source \"${NVM_DIR:-$HOME/.nvm}/nvm.sh\" && nvm install && nvm use && corepack enable && corepack prepare pnpm@10.25.0 --activate'",
+    "setup:pnpm": "corepack enable && corepack prepare pnpm@10.25.0 --activate",
     "validate:packages": "node scripts/validate-extension-packages.mjs",
     "commitlint": "commitlint",
     "prepare": "husky",
