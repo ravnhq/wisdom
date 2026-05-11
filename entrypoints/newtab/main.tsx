@@ -1,5 +1,5 @@
 import { Settings } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { FocusToggle } from "../../src/components/FocusToggle";
 import { NameCapture } from "../../src/components/NameCapture";
@@ -15,6 +15,7 @@ import "../../src/styles/global.css";
 export function NewTabApp() {
   const { state, setSettings } = useSettings();
   const [now, setNow] = useState(() => new Date());
+  const initialAdvanceDone = useRef(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(new Date()), 1_000);
@@ -27,6 +28,18 @@ export function NewTabApp() {
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme !== "light");
   }, [theme]);
+
+  // On the very first load, if the saved current quote was hidden in a previous
+  // session, silently advance to a random visible quote so the user never sees
+  // a quote they already dismissed.
+  useEffect(() => {
+    if (state.status !== "ready" || initialAdvanceDone.current) return;
+    initialAdvanceDone.current = true;
+    const s = state.data;
+    if (!s.hiddenQuoteIds.includes(s.currentQuoteId)) return;
+    const next = selectNextQuote(quotes, s.hiddenQuoteIds, s.currentQuoteId);
+    void setSettings({ ...s, currentQuoteId: next.id });
+  }, [state, setSettings]);
 
   const quote = useMemo(() => {
     if (!settings) return quotes[0];

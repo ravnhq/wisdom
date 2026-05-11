@@ -85,4 +85,17 @@ describe("NewTabApp quote navigation", () => {
     await waitFor(() => expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument());
     expect(screen.queryByText(quotes[1].text)).not.toBeInTheDocument();
   });
+
+  it("does not show a hidden quote when the page loads fresh", async () => {
+    // Simulate the user having hidden quotes[0] in a previous session while it
+    // was the saved currentQuoteId — opening a new tab must advance past it.
+    store.set("currentQuoteId", quotes[0].id);
+    store.set("hiddenQuoteIds", [quotes[0].id]);
+
+    render(<NewTabApp />);
+
+    await waitFor(() =>
+      expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument(),
+    );
+  });
 });
