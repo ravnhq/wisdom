@@ -29,4 +29,4 @@ This extension does not load or execute any remote code. All logic is bundled lo
 
 ## Contact
 
-For privacy-related questions, contact: raulpenate@gmail.com
+For privacy-related questions, contact: dev.raulpenate@gmail.com
