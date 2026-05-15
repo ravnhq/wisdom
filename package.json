@@ -56,5 +56,13 @@
   "volta": {
     "node": "22.21.1",
     "pnpm": "10.25.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd",
+      "sharp",
+      "spawn-sync"
+    ]
   }
 }

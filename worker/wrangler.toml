@@ -1,0 +1,17 @@
+name = "wisdom-images"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+[[r2_buckets]]
+binding = "IMAGES_BUCKET"
+bucket_name = "wisdom-images"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+# Replace with real KV namespace ID after running: wrangler kv namespace create RATE_LIMIT_KV
+id = "REPLACE_WITH_REAL_KV_ID"
+
+[vars]
+# Replace with the public URL for the R2 bucket (enable public access on the bucket first)
+# e.g. https://pub-abcdef1234567890.r2.dev
+R2_PUBLIC_URL = "https://pub-REPLACE.r2.dev"

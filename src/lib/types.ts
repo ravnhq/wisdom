@@ -22,6 +22,31 @@ export type WallpaperRecord = {
   dominantColor: string;
 };
 
+export type WallpaperSource = "bundled" | "api";
+
+export type WallpaperRefresh = "every-tab" | "daily" | "weekly";
+
+export const WALLPAPER_TOPICS = [
+  "nature",
+  "mountains",
+  "ocean",
+  "forest",
+  "city",
+  "abstract",
+  "space",
+  "architecture",
+  "desert",
+  "autumn",
+] as const;
+
+export type WallpaperTopic = (typeof WALLPAPER_TOPICS)[number];
+
+export type ApiWallpaper = {
+  url: string;
+  alt: string;
+  credit: string;
+};
+
 export type WisdomSettings = {
   userName: string;
   focusMode: FocusMode;
@@ -30,6 +55,12 @@ export type WisdomSettings = {
   currentQuoteId: string;
   currentWallpaperId: string;
   theme: "dark" | "light";
+  wallpaperSource: WallpaperSource;
+  wallpaperTopic: WallpaperTopic;
+  wallpaperRefresh: WallpaperRefresh;
+  lastWallpaperFetchedAt: string;
+  apiWallpaper: ApiWallpaper | null;
+  installId: string;
 };
 
 export type LoadState<T> =
