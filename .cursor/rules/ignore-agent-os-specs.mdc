@@ -1,0 +1,10 @@
+---
+description: Keep local Agent OS spec drafts out of Git
+alwaysApply: true
+---
+
+# Ignore Agent OS Specs
+
+- Do not add or commit files under `agent-os/specs/`.
+- Keep `agent-os/specs/` covered by `.gitignore`.
+- If files under `agent-os/specs/` are already tracked, remove them from the index with `git rm --cached` before updating the branch.

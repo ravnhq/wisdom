@@ -10,6 +10,7 @@ import { getWallpaperById, quotes } from "../../src/lib/data";
 import { selectNextQuote, selectQuote, updateHiddenQuoteIds } from "../../src/lib/quotes";
 import { formatTime, getGreeting } from "../../src/lib/time";
 import { useSettings } from "../../src/lib/useSettings";
+import { syncApiWallpaper } from "../../src/lib/wallpaper";
 import "../../src/styles/global.css";
 
 export function NewTabApp() {
@@ -41,14 +42,36 @@ export function NewTabApp() {
     void setSettings({ ...s, currentQuoteId: next.id });
   }, [state, setSettings]);
 
+  // Sync API wallpaper in the background whenever settings are ready.
+  // The hook re-reads storage so the UI updates automatically if a new
+  // image is fetched.
+  useEffect(() => {
+    if (state.status !== "ready") return;
+    if (state.data.wallpaperSource !== "api") return;
+    void syncApiWallpaper();
+  }, [state]);
+
   const quote = useMemo(() => {
     if (!settings) return quotes[0];
     return selectQuote(quotes, settings.hiddenQuoteIds, settings.currentQuoteId);
   }, [settings]);
-  const wallpaper = settings ? getWallpaperById(settings.currentWallpaperId) : undefined;
-  const wallpaperUrl = wallpaper
-    ? `/wallpapers/${wallpaper.fileName}`
-    : "/wallpapers/misty-forest.svg";
+
+  const bundledWallpaper = settings ? getWallpaperById(settings.currentWallpaperId) : undefined;
+
+  const wallpaperUrl =
+    settings?.wallpaperSource === "api" && settings.apiWallpaper
+      ? settings.apiWallpaper.url
+      : bundledWallpaper
+        ? `/wallpapers/${bundledWallpaper.fileName}`
+        : "/wallpapers/misty-forest.svg";
+
+  const wallpaperCredit =
+    settings?.wallpaperSource === "api" && settings.apiWallpaper
+      ? { title: settings.wallpaperTopic, credit: settings.apiWallpaper.credit }
+      : bundledWallpaper
+        ? { title: bundledWallpaper.title, credit: bundledWallpaper.credit }
+        : null;
+
   const showInFuture = settings ? !settings.hiddenQuoteIds.includes(quote.id) : true;
 
   if (state.status === "loading") {
@@ -136,9 +159,9 @@ export function NewTabApp() {
               });
             }}
           />
-          {wallpaper ? (
+          {wallpaperCredit ? (
             <p className="rounded-full bg-slate-950/40 px-4 py-2 text-xs text-slate-100 backdrop-blur">
-              {wallpaper.title} · {wallpaper.credit}
+              {wallpaperCredit.title} · {wallpaperCredit.credit}
             </p>
           ) : null}
         </footer>

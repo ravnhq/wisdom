@@ -11,3 +11,7 @@ export const DEFAULT_BLOCKED_DOMAINS = [
 
 export const DEFAULT_QUOTE_ID = "maintenance-care";
 export const DEFAULT_WALLPAPER_ID = "misty-forest";
+
+export const WISDOM_WORKER_URL =
+  (typeof import.meta !== "undefined" && import.meta.env?.VITE_WISDOM_WORKER_URL) ||
+  "https://wisdom-images.REPLACE.workers.dev";

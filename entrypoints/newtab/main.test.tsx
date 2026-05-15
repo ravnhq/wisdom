@@ -94,8 +94,6 @@ describe("NewTabApp quote navigation", () => {
 
     render(<NewTabApp />);
 
-    await waitFor(() =>
-      expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument(),
-    );
+    await waitFor(() => expect(screen.queryByText(quotes[0].text)).not.toBeInTheDocument());
   });
 });

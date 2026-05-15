@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars and fill in your actual values.
+# .dev.vars is gitignored and only used for local `wrangler dev`.
+# In production, set these with: wrangler secret put <NAME>
+
+UNSPLASH_ACCESS_KEY=your_unsplash_access_key_here
+WISDOM_API_KEY=your_shared_api_key_here

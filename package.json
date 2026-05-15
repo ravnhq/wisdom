@@ -3,10 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.25.0",
   "scripts": {
     "dev": "wxt",
-    "build": "wxt build && cd .output/chrome-mv3 && zip -r ../wisdom-chrome.zip .",
-    "build:firefox": "wxt build -b firefox && cd .output/firefox-mv3 && zip -r ../wisdom-firefox.zip .",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip:chrome": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:all": "pnpm zip:chrome && pnpm zip:firefox && pnpm validate:packages",
+    "setup:toolchain": "volta install node@22.21.1 pnpm@10.25.0",
+    "setup:toolchain:nvm": "bash -lc 'source \"${NVM_DIR:-$HOME/.nvm}/nvm.sh\" && nvm install && nvm use && corepack enable && corepack prepare pnpm@10.25.0 --activate'",
+    "setup:pnpm": "corepack enable && corepack prepare pnpm@10.25.0 --activate",
+    "validate:packages": "node scripts/validate-extension-packages.mjs",
+    "commitlint": "commitlint",
+    "prepare": "husky",
     "typecheck": "wxt prepare && tsc --noEmit",
     "check": "biome check .",
     "test": "vitest run",
@@ -24,6 +34,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
+    "@commitlint/cli": "^21.0.0",
+    "@commitlint/config-conventional": "^21.0.0",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/vite": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -33,11 +45,24 @@
     "@types/react-dom": "^19.2.3",
     "@types/webextension-polyfill": "^0.12.5",
     "@wxt-dev/module-react": "^1.2.2",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "playwright": "^1.59.1",
     "tailwindcss": "^4.3.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5",
     "wxt": "^0.20.25"
+  },
+  "volta": {
+    "node": "22.21.1",
+    "pnpm": "10.25.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd",
+      "sharp",
+      "spawn-sync"
+    ]
   }
 }

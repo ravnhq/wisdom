@@ -1,5 +1,12 @@
+import { readFileSync } from "node:fs";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "wxt";
+
+const packageJson = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf8"),
+) as {
+  version: string;
+};
 
 export default defineConfig({
   manifestVersion: 3,
@@ -10,7 +17,7 @@ export default defineConfig({
     },
     name: "Wisdom",
     description: "A calm focus extension with inspirational new tabs and distraction blocking.",
-    version: "0.1.0",
+    version: packageJson.version,
     permissions: ["storage", "tabs", "webNavigation"],
     host_permissions: ["<all_urls>"],
     chrome_url_overrides: {
