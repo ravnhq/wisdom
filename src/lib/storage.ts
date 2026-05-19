@@ -14,12 +14,6 @@ export const defaultSettings: WisdomSettings = {
   currentQuoteId: DEFAULT_QUOTE_ID,
   currentWallpaperId: DEFAULT_WALLPAPER_ID,
   theme: "dark",
-  wallpaperSource: "bundled",
-  wallpaperTopic: "nature",
-  wallpaperRefresh: "daily",
-  lastWallpaperFetchedAt: new Date(0).toISOString(),
-  apiWallpaper: null,
-  installId: "",
 };
 
 function sanitizeSettings(value: Partial<WisdomSettings> | undefined): WisdomSettings {

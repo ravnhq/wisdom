@@ -88,18 +88,6 @@ importers:
         specifier: ^0.20.25
         version: 0.20.25(@types/node@25.6.2)(jiti@2.7.0)
 
-  worker:
-    devDependencies:
-      '@cloudflare/workers-types':
-        specifier: ^4.20250508.0
-        version: 4.20260515.1
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-      wrangler:
-        specifier: ^4.14.4
-        version: 4.91.0(@cloudflare/workers-types@4.20260515.1)
-
 packages:
 
   '@1natsu/wait-element@4.2.0':
