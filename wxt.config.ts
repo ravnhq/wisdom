@@ -19,9 +19,12 @@ function apiOrigin(mode: string) {
 export default defineConfig({
   manifestVersion: 3,
   modules: ["@wxt-dev/module-react"],
-  manifest: ({ mode }) => ({
+  manifest: ({ mode, browser }) => ({
     icons: {
-      "128": "/logo.png",
+      "16": "/icon/16.png",
+      "32": "/icon/32.png",
+      "48": "/icon/48.png",
+      "128": "/icon/128.png",
     },
     name: "Wisdom",
     description: "A calm focus extension with inspirational new tabs and distraction blocking.",
@@ -31,17 +34,13 @@ export default defineConfig({
     chrome_url_overrides: {
       newtab: "newtab.html",
     },
-    options_ui: {
-      page: "options.html",
-      open_in_tab: true,
-    },
-    browser_specific_settings: {
-      gecko: {
-        data_collection_permissions: {
-          required: ["none"],
-        },
-      },
-    },
+    ...(browser === "firefox"
+      ? {
+          browser_specific_settings: {
+            gecko: { data_collection_permissions: { required: ["none"] } },
+          },
+        }
+      : { minimum_chrome_version: "117" }),
   }),
   vite: () => ({
     plugins: [tailwindcss()],
