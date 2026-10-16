@@ -1,3 +1,4 @@
+import { DEFAULT_ACCENT, parseAccentChoice } from "./accents";
 import { normalizeBlockedDomains } from "./blocking";
 import { browser } from "./browser";
 import { DEFAULT_BLOCKED_DOMAINS, DEFAULT_QUOTE_ID, DEFAULT_WALLPAPER_ID } from "./constants";
@@ -12,8 +13,10 @@ export const defaultSettings: WisdomSettings = {
   blockedDomains: [...DEFAULT_BLOCKED_DOMAINS],
   hiddenQuoteIds: [],
   currentQuoteId: DEFAULT_QUOTE_ID,
+  quoteDay: "",
   currentWallpaperId: DEFAULT_WALLPAPER_ID,
   theme: "dark",
+  accent: DEFAULT_ACCENT,
 };
 
 function sanitizeSettings(value: Partial<WisdomSettings> | undefined): WisdomSettings {
@@ -28,6 +31,9 @@ function sanitizeSettings(value: Partial<WisdomSettings> | undefined): WisdomSet
       value?.blockedDomains ?? defaultSettings.blockedDomains,
     ),
     hiddenQuoteIds: Array.from(new Set(value?.hiddenQuoteIds ?? [])),
+    theme: value?.theme === "light" ? "light" : "dark",
+    accent: parseAccentChoice(value?.accent),
+    quoteDay: typeof value?.quoteDay === "string" ? value.quoteDay : "",
   };
 }
 

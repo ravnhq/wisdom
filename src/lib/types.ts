@@ -1,3 +1,5 @@
+import type { AccentChoice, Theme } from "./accents";
+
 export type FocusMode = {
   enabled: boolean;
   updatedAt: string;
@@ -28,8 +30,10 @@ export type WisdomSettings = {
   blockedDomains: string[];
   hiddenQuoteIds: string[];
   currentQuoteId: string;
+  quoteDay: string;
   currentWallpaperId: string;
-  theme: "dark" | "light";
+  theme: Theme;
+  accent: AccentChoice;
 };
 
 export type LoadState<T> =

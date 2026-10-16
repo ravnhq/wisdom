@@ -19,6 +19,12 @@
 
 Every time you open a new tab, Wisdom shows you an inspirational quote written by real people, with a short explanation of why it matters. Turn on Focus Mode and it will silently redirect any site on your blocked list before the page even loads. Your name, theme, blocked sites, and quote preferences all stay in your browser. Nothing leaves your machine.
 
+## Architecture
+
+How the extension, the Cloudflare Worker, R2, and Pixabay fit together, with the security and cost model: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+![Wisdom architecture](docs/architecture.svg)
+
 ## Features
 
 - **New tab quotes:** a rotating set of quotes, shown randomly, each with an explanation and author

@@ -1,5 +1,5 @@
 import { DEFAULT_QUOTE_ID } from "./constants";
-import type { QuoteRecord } from "./types";
+import type { QuoteRecord, WisdomSettings } from "./types";
 
 export function getVisibleQuotes(quotes: QuoteRecord[], hiddenQuoteIds: string[]): QuoteRecord[] {
   const hidden = new Set(hiddenQuoteIds);
@@ -44,4 +44,16 @@ export function updateHiddenQuoteIds(
     hidden.add(quoteId);
   }
   return Array.from(hidden);
+}
+
+export function quoteForDay(
+  settings: Pick<WisdomSettings, "currentQuoteId" | "hiddenQuoteIds" | "quoteDay">,
+  quotes: QuoteRecord[],
+  today: string,
+  { skipHidden }: { skipHidden: boolean },
+): Pick<WisdomSettings, "currentQuoteId" | "quoteDay"> | null {
+  const isHidden = skipHidden && settings.hiddenQuoteIds.includes(settings.currentQuoteId);
+  if (settings.quoteDay === today && !isHidden) return null;
+  const next = selectNextQuote(quotes, settings.hiddenQuoteIds, settings.currentQuoteId);
+  return { currentQuoteId: next.id, quoteDay: today };
 }

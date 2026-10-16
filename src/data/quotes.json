@@ -26,7 +26,7 @@
   {
     "id": "quiet-courage",
     "text": "The quiet work you protect today becomes the confidence you rely on tomorrow.",
-    "author": "Wisdom",
+    "author": "Dave",
     "explanation": "Small protected sessions compound into trust in your own attention and follow-through.",
     "tags": ["attention", "discipline"],
     "defaultVisible": true
@@ -477,6 +477,246 @@
     "author": "Dave",
     "explanation": "Progress is easy to discount once it becomes your baseline. Pausing to acknowledge how far you have come is not vanity — it is fuel.",
     "tags": ["resilience", "gratitude", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "tolerate-uncertainty",
+    "text": "The capacity to tolerate uncertainty is a prerequisite for the profession.",
+    "author": "Irvin D. Yalom",
+    "explanation": "Most real work starts without a clear answer. Staying steady while you figure it out, instead of faking certainty, is part of the job.",
+    "tags": ["resilience", "humility", "mindset"],
+    "defaultVisible": true
+  },
+  {
+    "id": "relationship-heals",
+    "text": "It's the relationship that heals.",
+    "author": "Irvin D. Yalom",
+    "explanation": "Tools and processes help, but trust between people is what actually fixes hard situations, with clients and inside the team.",
+    "tags": ["relationships", "care", "empathy"],
+    "defaultVisible": true
+  },
+  {
+    "id": "us-and-our-problems",
+    "text": "We cannot say to them you and your problems. Instead, we must speak of us and our problems … We are, all of us, in this together.",
+    "author": "Irvin D. Yalom",
+    "explanation": "Say our outage, not your bug. When the problem belongs to everyone, people stop hiding and start fixing.",
+    "tags": ["humility", "accountability", "empathy"],
+    "defaultVisible": true
+  },
+  {
+    "id": "vitality-not-gaiety",
+    "text": "The true opposite of depression is neither gaiety nor absence of pain, but vitality—the freedom to experience spontaneous feelings.",
+    "author": "Alice Miller",
+    "explanation": "A healthy team is not one where everyone looks happy. It is one where people can say what they really feel, so problems surface early.",
+    "tags": ["wellbeing", "authenticity", "self-awareness"],
+    "defaultVisible": true
+  },
+  {
+    "id": "grandiose-never-free",
+    "text": "The grandiose person is never really free; first because he is excessively dependent on admiration from others, and second, because his self-respect is dependent on qualities, functions, and achievements that can suddenly fail.",
+    "author": "Alice Miller",
+    "explanation": "If your worth depends on always being the smartest one in the room, one bad day can break you. Build your confidence on who you are, not on applause.",
+    "tags": ["ego", "self-awareness", "identity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "contempt-weapon-of-weak",
+    "text": "Contempt is the weapon of the weak and a defense against one's own despised and unwanted feelings.",
+    "author": "Alice Miller",
+    "explanation": "Sneering at a teammate is not strength. It usually hides discomfort. Kindness takes more strength than contempt ever will.",
+    "tags": ["character", "self-awareness", "empathy"],
+    "defaultVisible": true
+  },
+  {
+    "id": "last-human-freedom",
+    "text": "Everything can be taken from a man but one thing: the last of the human freedoms—to choose one's attitude in any given set of circumstances, to choose one's own way.",
+    "author": "Viktor E. Frankl",
+    "explanation": "You cannot always control the deadline, the scope change, or the client's mood. You can always choose how you respond.",
+    "tags": ["resilience", "mindset", "accountability"],
+    "defaultVisible": true
+  },
+  {
+    "id": "responsibility-to-answer",
+    "text": "Life ultimately means taking the responsibility to find the right answer to its problems and to fulfill the tasks which it constantly sets for each individual.",
+    "author": "Viktor E. Frankl",
+    "explanation": "Ownership means treating the problem in front of you as yours to solve, instead of waiting for someone to tell you what is expected.",
+    "tags": ["accountability", "purpose", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "right-action",
+    "text": "Our answer must consist, not in talk and meditation, but in right action and in right conduct.",
+    "author": "Viktor E. Frankl",
+    "explanation": "Good intentions in a meeting change nothing. What you do after the meeting is your real answer.",
+    "tags": ["accountability", "character", "work"],
+    "defaultVisible": true
+  },
+  {
+    "id": "love-is-activity",
+    "text": "Love is an activity, not a passive affect; it is a \"standing in,\" not a \"falling for.\"",
+    "author": "Erich Fromm",
+    "explanation": "Strong working relationships are built by showing up and giving your attention and help first, not by waiting to feel inspired.",
+    "tags": ["care", "generosity", "relationships"],
+    "defaultVisible": true
+  },
+  {
+    "id": "respect-to-look-at",
+    "text": "Respect is not fear and awe; it denotes, in accordance with the root of the word (respicere = to look at), the ability to see a person as he is, to be aware of his unique individuality.",
+    "author": "Erich Fromm",
+    "explanation": "Respect is seeing a teammate or client as they really are, not bowing to a title and not judging through your assumptions.",
+    "tags": ["empathy", "relationships", "care"],
+    "defaultVisible": true
+  },
+  {
+    "id": "art-requires-discipline",
+    "text": "First of all, the practice of an art requires discipline. I shall never be good at anything if I do not do it in a disciplined way…",
+    "author": "Erich Fromm",
+    "explanation": "Nobody gets great at reviews, on-call, or leading people by doing it only when they feel like it. Mastery is showing up on the days you would rather not.",
+    "tags": ["discipline", "growth", "standards"],
+    "defaultVisible": true
+  },
+  {
+    "id": "convince-me-gladly",
+    "text": "If any man is able to convince me and show me that I do not think or act right, I will gladly change; for I seek the truth, by which no man was ever injured. But he is injured who abides in his error and ignorance.",
+    "author": "Marcus Aurelius",
+    "explanation": "Being shown you are wrong in a review is a gift. The real cost is holding on to a bad idea after someone has shown you the problem.",
+    "tags": ["humility", "learning", "ego"],
+    "defaultVisible": true
+  },
+  {
+    "id": "be-such",
+    "text": "No longer talk at all about the kind of man that a good man ought to be, but be such.",
+    "author": "Marcus Aurelius",
+    "explanation": "Values on a slide mean nothing. Standards only count when they show up in your daily work.",
+    "tags": ["character", "accountability", "standards"],
+    "defaultVisible": true
+  },
+  {
+    "id": "not-right-not-true",
+    "text": "If it is not right, do not do it: if it is not true, do not say it.",
+    "author": "Marcus Aurelius",
+    "explanation": "Two rules that cover most of professional life. No shortcuts you would hide, and no status updates you would have to walk back.",
+    "tags": ["character", "standards", "communication"],
+    "defaultVisible": true
+  },
+  {
+    "id": "blind-to-our-blindness",
+    "text": "The gorilla study illustrates two important facts about our minds: we can be blind to the obvious, and we are also blind to our blindness.",
+    "author": "Daniel Kahneman",
+    "explanation": "Everyone has blind spots they cannot see from inside. That is why second reviewers, user testing, and outside opinions exist.",
+    "tags": ["self-awareness", "humility", "attention"],
+    "defaultVisible": true
+  },
+  {
+    "id": "organizations-think-slowly",
+    "text": "Organizations are better than individuals when it comes to avoiding errors, because they naturally think more slowly and have the power to impose orderly procedures.",
+    "author": "Daniel Kahneman",
+    "explanation": "You cannot train judgment errors out of people, but a team can build steps that catch them: checklists, reviews, premortems, and retros.",
+    "tags": ["systems", "judgment", "discipline"],
+    "defaultVisible": true
+  },
+  {
+    "id": "quality-of-the-story",
+    "text": "The confidence that individuals have in their beliefs depends mostly on the quality of the story they can tell about what they see, even if they see little.",
+    "author": "Daniel Kahneman",
+    "explanation": "Feeling sure is not evidence. Before you defend a conclusion, check how much you actually saw versus how good the story sounds.",
+    "tags": ["judgment", "humility", "self-awareness"],
+    "defaultVisible": true
+  },
+  {
+    "id": "see-their-angle",
+    "text": "If you really want to change someone's mind on a moral or political matter, you'll need to see things from that person's angle as well as your own.",
+    "author": "Jonathan Haidt",
+    "explanation": "Winning the argument rarely changes a mind. Understanding why the other view makes sense to them is where agreement starts.",
+    "tags": ["empathy", "communication", "curiosity"],
+    "defaultVisible": true
+  },
+  {
+    "id": "binds-and-blinds",
+    "text": "Morality binds and blinds. This is not just something that happens to people on the other side. We all get sucked into tribal moral communities.",
+    "author": "Jonathan Haidt",
+    "explanation": "Frontend versus backend, us versus the client. Camps form fast, and it happens to you too, not just to the other side.",
+    "tags": ["self-awareness", "humility", "relationships"],
+    "defaultVisible": true
+  },
+  {
+    "id": "empathy-antidote",
+    "text": "Empathy is an antidote to righteousness, although it's very difficult to empathize across a moral divide.",
+    "author": "Jonathan Haidt",
+    "explanation": "When you feel most certain you are right, that is the moment to get curious about the other person's view.",
+    "tags": ["empathy", "humility", "ego"],
+    "defaultVisible": true
+  },
+  {
+    "id": "victory-peril",
+    "text": "The moment of victory is often the moment of greatest peril.",
+    "author": "Robert Greene",
+    "explanation": "Right after a big launch is when teams get careless. Treat success as a reason to double-check, not to relax your standards.",
+    "tags": ["discipline", "ego", "judgment"],
+    "defaultVisible": true
+  },
+  {
+    "id": "ending-is-everything",
+    "text": "The ending is everything. Plan all the way to it, taking into account all the possible consequences, obstacles, and twists of fortune…",
+    "author": "Robert Greene",
+    "explanation": "Merged is not done. Think through rollout, handoff, and support so the client gets a result, not a surprise.",
+    "tags": ["judgment", "standards", "systems"],
+    "defaultVisible": true
+  },
+  {
+    "id": "demonstrate-not-explicate",
+    "text": "It is much more powerful to get others to agree with you through your actions, without saying a word. Demonstrate, do not explicate.",
+    "author": "Robert Greene",
+    "explanation": "Skip the endless debate in the doc. Build the prototype, ship the fix, and let the result make the case.",
+    "tags": ["work", "communication", "leadership"],
+    "defaultVisible": true
+  },
+  {
+    "id": "victory-before-battle",
+    "text": "Thus it is that in war the victorious strategist only seeks battle after the victory has been won, whereas he who is destined to defeat first fights and afterwards looks for victory.",
+    "author": "Sun Tzu",
+    "explanation": "Win the work before you start: clear requirements, a spike on the risky part, agreed acceptance criteria. Coding first and hoping later is how deadlines slip.",
+    "tags": ["discipline", "judgment", "standards"],
+    "defaultVisible": true
+  },
+  {
+    "id": "jewel-of-the-kingdom",
+    "text": "The general who advances without coveting fame and retreats without fearing disgrace, whose only thought is to protect his country and do good service for his sovereign, is the jewel of the kingdom.",
+    "author": "Sun Tzu",
+    "explanation": "The best people push forward when it helps and pull back when that is right, without worrying about how it looks. Their choices serve the client, not their ego.",
+    "tags": ["accountability", "ego", "character"],
+    "defaultVisible": true
+  },
+  {
+    "id": "calculations-in-temple",
+    "text": "Now the general who wins a battle makes many calculations in his temple ere the battle is fought.",
+    "author": "Sun Tzu",
+    "explanation": "Wisdom is prevention. The incident you avoid is decided in the planning you did weeks before.",
+    "tags": ["discipline", "judgment", "systems"],
+    "defaultVisible": true
+  },
+  {
+    "id": "life-is-difficult",
+    "text": "Life is difficult. This is a great truth, one of the greatest truths.",
+    "author": "M. Scott Peck",
+    "explanation": "Hard projects are not proof that someone failed. Once you accept that difficulty is normal, you stop complaining and start solving.",
+    "tags": ["resilience", "mindset", "growth"],
+    "defaultVisible": true
+  },
+  {
+    "id": "problems-create-courage",
+    "text": "Problems call forth our courage and our wisdom; indeed, they create our courage and our wisdom.",
+    "author": "M. Scott Peck",
+    "explanation": "The bug nobody wants and the tough client conversation are where people actually grow. Pick up the hard problem.",
+    "tags": ["courage", "growth", "learning"],
+    "defaultVisible": true
+  },
+  {
+    "id": "this-is-my-problem",
+    "text": "We cannot solve a problem by saying, \"It's not my problem.\" … I can solve a problem only when I say, \"This is my problem and it's up to me to solve it.\"",
+    "author": "M. Scott Peck",
+    "explanation": "It may not be your fault, but it is your project. Nothing moves until someone says out loud: this one is mine.",
+    "tags": ["accountability", "leadership", "courage"],
     "defaultVisible": true
   }
 ]

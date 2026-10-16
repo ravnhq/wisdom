@@ -1,5 +1,6 @@
 import { HelpCircle } from "lucide-react";
-import { useState } from "react";
+import { type CSSProperties, Fragment, useState } from "react";
+import { keyedPhrases } from "../lib/phrases";
 import type { QuoteRecord } from "../lib/types";
 import { Button } from "./Button";
 
@@ -11,6 +12,12 @@ type QuoteCardProps = {
   compact?: boolean;
 };
 
+function quoteSize(text: string) {
+  if (text.length <= 90) return "text-[1.75rem] leading-[1.4] sm:text-[2.125rem]";
+  if (text.length <= 140) return "text-[1.5rem] leading-[1.45] sm:text-[1.625rem]";
+  return "text-[1.25rem] leading-[1.5] sm:text-[1.3125rem]";
+}
+
 export function QuoteCard({
   quote,
   showInFuture,
@@ -19,35 +26,61 @@ export function QuoteCard({
   compact = false,
 }: QuoteCardProps) {
   const [showExplanation, setShowExplanation] = useState(false);
+  const [firstQuoteId] = useState(quote.id);
+  const [animate, setAnimate] = useState(false);
+  if (!animate && quote.id !== firstQuoteId) setAnimate(true);
 
   return (
     <section
       aria-label="Inspirational phrase"
-      className={`rounded-3xl border border-white/25 bg-white/85 p-6 text-slate-950 shadow-2xl backdrop-blur-xl dark:border-[rgba(0,201,167,0.18)] dark:bg-[#0D2A28]/85 dark:text-[#FAF3E0] ${
+      className={`w-full rounded-3xl border border-line bg-surface/95 p-7 text-ink shadow-2xl backdrop-blur-xl sm:px-10 sm:py-7 ${
         compact ? "max-w-5xl" : "max-w-3xl"
       }`}
     >
-      <div className="border-l-4 border-[#008F7A] pl-5 dark:border-[#00C9A7]">
-        <p className={`${compact ? "text-xl" : "text-3xl"} font-semibold leading-tight`}>
-          {quote.text}
-        </p>
-        <p className="mt-4 text-lg font-medium text-[#3D7570] dark:text-[#8ECCC4]">
+      <figure className={animate ? "quote-enter" : undefined} key={quote.id}>
+        <span aria-hidden="true" className="block font-reading text-6xl leading-none text-accent">
+          &ldquo;
+        </span>
+        <blockquote
+          className={`-mt-3 font-reading ${compact ? "text-xl leading-8" : quoteSize(quote.text)}`}
+        >
+          {keyedPhrases(quote.text).map((phrase, order) => (
+            <Fragment key={phrase.key}>
+              {phrase.key > 0 ? " " : null}
+              <span
+                className={`inline-block text-pretty ${animate ? "quote-phrase" : ""}`}
+                style={{ "--i": order } as CSSProperties}
+              >
+                {phrase.text}
+              </span>
+            </Fragment>
+          ))}
+        </blockquote>
+        <figcaption className="mt-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-ink-muted">
+          <span aria-hidden="true" className="h-px w-8 bg-accent" />
           {quote.author}
-        </p>
+        </figcaption>
+      </figure>
+
+      <div
+        aria-hidden={!showExplanation}
+        className="explanation"
+        data-open={showExplanation}
+        inert={!showExplanation}
+      >
+        <div className="overflow-hidden">
+          <p className="mt-5 rounded-2xl bg-surface-muted px-5 py-4 font-reading text-[1.0625rem] leading-7 text-ink text-pretty">
+            {quote.explanation}
+          </p>
+        </div>
       </div>
 
-      {showExplanation ? (
-        <p className="mt-5 rounded-2xl bg-[#F0F9F7] p-4 text-sm leading-6 text-[#0A3530] dark:bg-[#0A2422] dark:text-[#8ECCC4]">
-          {quote.explanation}
-        </p>
-      ) : null}
-
-      <div className="mt-6 flex flex-wrap items-center gap-4">
+      <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-line pt-4">
         <Button onClick={onNext}>Next quote &gt;</Button>
-        <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-[#3D7570] dark:text-[#8ECCC4]">
+        <label className="flex cursor-pointer items-center gap-3 text-sm font-medium text-ink-muted">
           <input
             checked={showInFuture}
-            className="h-5 w-5 accent-teal-600 dark:accent-teal-400"
+            className="h-5 w-5 shrink-0 accent-accent"
             onChange={(event) => onShowInFutureChange(event.target.checked)}
             type="checkbox"
           />

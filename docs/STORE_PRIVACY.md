@@ -10,27 +10,15 @@ Wisdom replaces your new tab page with an inspirational view and blocks distract
 
 ### `storage`
 
-The storage permission saves user preferences locally on the device via `chrome.storage.local`. This includes the user's display name, Focus Mode state, blocked domain list, current wallpaper and quote selections, hidden quote IDs, and theme.
-
-No data is sent to or stored on external servers.
-
-### `tabs`
-
-The tabs permission is used solely to redirect the active tab to the extension's built-in blocked page when a user navigates to a blocklisted site while Focus Mode is on.
-
-No tab URLs, titles, or history are read or stored beyond what is needed for this redirect.
+Saves the user's preferences on the device with `chrome.storage.local`. That covers display name, Focus Mode state, blocked domains, quote and wallpaper choices, hidden quote IDs, theme, and theme color. None of it is sent anywhere.
 
 ### `webNavigation`
 
-The webNavigation permission listens to `onBeforeNavigate` events to intercept top-level navigations before they complete. When Focus Mode is enabled, each URL is checked locally against the user's blocklist. If matched, the tab is redirected to the extension's blocked page.
+Listens to `onBeforeNavigate` so that, while Focus Mode is on, a navigation to a site on the user's own blocklist is redirected to the extension's focus page. The URL is checked on device and is never stored or sent.
 
-This is essential for the core distraction-blocking feature.
+### Host permission: `https://wisdom-api.raul-h-penate.workers.dev/*`
 
-### Host Permissions
-
-The extension monitors navigated URLs in real time to detect when a user visits a site on their personal blocklist during Focus Mode. This check is performed entirely on-device against the user's blocklist stored in `chrome.storage.local`.
-
-No browsing data is collected, transmitted, or stored remotely.
+Loads the daily background photo and its credit from the extension's own API. The request contains only the theme color name, such as `blue`, and the local date. It contains no user data. Without this permission, the new tab falls back to a bundled wallpaper.
 
 ## Remote Code
 
@@ -38,7 +26,7 @@ Select: **No, I am not using remote code.**
 
 If a justification is requested:
 
-Wisdom does not load or execute JavaScript or WebAssembly from remote servers. All extension code is bundled in the submitted package.
+Wisdom does not load or execute JavaScript or WebAssembly from remote servers. All extension code is bundled in the submitted package. The Wisdom API returns only a JPEG image and a JSON credit (author name and Pixabay links), which are validated and rendered as text and links.
 
 ## Data Usage Disclosures
 
