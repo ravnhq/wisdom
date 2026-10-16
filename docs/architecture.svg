@@ -99,9 +99,9 @@
     <path d="M12 5 V12 L17 15" stroke="#dc2626" stroke-width="2" fill="none"/>
   </g>
   <text x="590" y="352" class="h">Rate Limiting</text>
-  <text x="558" y="376" class="t">60 req/min per IPv4</text>
-  <text x="558" y="394" class="t">or per IPv6 /64 → 429</text>
-  <text x="558" y="414" class="s">binding, no extra cost</text>
+  <text x="558" y="376" class="t">60/min per IPv4 or /64</text>
+  <text x="558" y="394" class="t">best-effort, per location</text>
+  <text x="558" y="414" class="s">backstop: free-plan daily cap</text>
 
   <rect x="778" y="316" width="220" height="112" rx="12" class="box"/>
   <g transform="translate(794 334)">
@@ -200,5 +200,5 @@
   <path class="edge dash" d="M1235 600 C 1235 760, 300 800, 240 742"/>
   <text x="760" y="800" class="label">install / update</text>
 
-  <text x="40" y="840" class="s">Abuse model: per-IP and per-/64 limit, strict input validation, private bucket, no write endpoints. Worst case is quota exhaustion on the free plan, which degrades to the bundled wallpaper, never a bill.</text>
+  <text x="40" y="840" class="s">Abuse model: allow-listed inputs, private bucket, no write endpoints, best-effort per-IP limit. Worst case is quota exhaustion on the free plan, which degrades to the bundled wallpaper, never a bill. Custom domain + free WAF rule is the edge upgrade.</text>
 </svg>
