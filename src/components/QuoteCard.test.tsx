@@ -22,7 +22,14 @@ describe("QuoteCard", () => {
     await user.click(screen.getByRole("button", { name: /next quote/i }));
     expect(onNext).toHaveBeenCalledTimes(1);
 
+    const panel = screen.getByText(quotes[0].explanation).closest(".explanation");
+    expect(panel).toHaveAttribute("aria-hidden", "true");
+
     await user.click(screen.getByRole("button", { name: /show phrase explanation/i }));
-    expect(screen.getByText(quotes[0].explanation)).toBeInTheDocument();
+    expect(panel).toHaveAttribute("aria-hidden", "false");
+    expect(panel).toHaveAttribute("data-open", "true");
+
+    await user.click(screen.getByRole("button", { name: /show phrase explanation/i }));
+    expect(panel).toHaveAttribute("data-open", "false");
   });
 });

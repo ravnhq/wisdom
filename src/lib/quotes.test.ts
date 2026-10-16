@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { quotes } from "./data";
-import { selectNextQuote, selectQuote, updateHiddenQuoteIds } from "./quotes";
+import { quoteForDay, selectNextQuote, selectQuote, updateHiddenQuoteIds } from "./quotes";
+import type { QuoteRecord } from "./types";
 
 describe("quote selection", () => {
   it("selects current visible quote", () => {
@@ -25,9 +26,7 @@ describe("quote selection", () => {
 
   it("selectNextQuote only returns visible quotes", () => {
     const hidden = updateHiddenQuoteIds([], quotes[1].id, false);
-    const results = Array.from({ length: 20 }, () =>
-      selectNextQuote(quotes, hidden, quotes[0].id),
-    );
+    const results = Array.from({ length: 20 }, () => selectNextQuote(quotes, hidden, quotes[0].id));
     expect(results.every((q) => q.id !== quotes[1].id)).toBe(true);
   });
 
@@ -35,5 +34,30 @@ describe("quote selection", () => {
     const hidden = updateHiddenQuoteIds([], quotes[1].id, false);
     const next = selectNextQuote(quotes, hidden, quotes[1].id);
     expect(next.id).not.toBe(quotes[1].id);
+  });
+});
+
+describe("quoteForDay", () => {
+  const pool: QuoteRecord[] = [
+    { id: "a", text: "A", author: "X", explanation: "", tags: [], defaultVisible: true },
+    { id: "b", text: "B", author: "X", explanation: "", tags: [], defaultVisible: true },
+  ];
+  const base = { currentQuoteId: "a", hiddenQuoteIds: [] as string[], quoteDay: "2026-10-16" };
+
+  it("keeps today's quote", () => {
+    expect(quoteForDay(base, pool, "2026-10-16", { skipHidden: true })).toBeNull();
+  });
+
+  it("moves to a different quote on a new day", () => {
+    expect(quoteForDay(base, pool, "2026-10-17", { skipHidden: false })).toEqual({
+      currentQuoteId: "b",
+      quoteDay: "2026-10-17",
+    });
+  });
+
+  it("skips a hidden quote on open, but not while the user is looking at it", () => {
+    const hidden = { ...base, hiddenQuoteIds: ["a"] };
+    expect(quoteForDay(hidden, pool, "2026-10-16", { skipHidden: true })?.currentQuoteId).toBe("b");
+    expect(quoteForDay(hidden, pool, "2026-10-16", { skipHidden: false })).toBeNull();
   });
 });

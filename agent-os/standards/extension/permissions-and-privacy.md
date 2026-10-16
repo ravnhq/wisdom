@@ -3,13 +3,17 @@
 ## Permission Discipline
 
 - Request the minimum permissions needed for the MVP.
-- Prefer `storage` and targeted host permissions required for blocking behavior.
-- Avoid broad permissions unless the feature cannot work without them.
-- Document why each permission exists before shipping.
+- The extension requests `storage`, `webNavigation`, and host access to the Wisdom API origin only.
+- Blocking works without host permissions. `webNavigation` sees the URL and `tabs.update` redirects to an extension page.
+- Never add `tabs` or `<all_urls>`. They trigger broad install warnings and in-depth store review.
+- The API origin in the manifest comes from `WXT_WALLPAPER_API_URL`. Release builds must not have a local `.env`, so they only request the production origin.
+- Document why each permission exists before shipping, in `PRIVACY.md` and the store listing.
 
 ## Privacy
 
-- The MVP should not require a backend, account, analytics service, or remote tracking.
+- No account, analytics service, or remote tracking.
+- The only backend is the Wisdom API. The extension sends it nothing but the theme color name (`?palette=`).
+- The API must not log or store IP addresses. It uses them only for per-minute rate limiting.
 - Do not collect browsing history beyond what is required locally to identify blocked-site navigation.
 - Keep user settings local to browser extension storage unless sync becomes an explicit future feature.
 - Do not send quote preferences, blocked sites, or user names to any external service.
@@ -17,7 +21,8 @@
 ## Assets
 
 - Use bundled wallpapers or free-to-use images with clear licensing.
-- Avoid remote image loading in the MVP unless privacy, reliability, and licensing are explicitly handled.
+- Daily photos come from Pixabay through the Wisdom API, with author and Pixabay credit shown in the footer.
+- When the API is unavailable, fall back to the bundled wallpaper.
 - Keep asset metadata local and auditable.
 
 ## User Trust

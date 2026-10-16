@@ -40,13 +40,3 @@ export function isBlockedUrl(url: string, blockedDomains: string[]): boolean {
     (domain) => hostname === domain || hostname.endsWith(`.${domain}`),
   );
 }
-
-export function getBlockedSiteVariant(
-  url: string,
-): "youtube" | "instagram" | "linkedin" | "generic" {
-  const hostname = getHostnameFromUrl(url) ?? "";
-  if (hostname.endsWith("youtube.com")) return "youtube";
-  if (hostname.endsWith("instagram.com")) return "instagram";
-  if (hostname.endsWith("linkedin.com")) return "linkedin";
-  return "generic";
-}

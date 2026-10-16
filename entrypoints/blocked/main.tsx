@@ -1,36 +1,27 @@
-import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { Button } from "../../src/components/Button";
 import { QuoteCard } from "../../src/components/QuoteCard";
-import { getBlockedSiteVariant, getHostnameFromUrl } from "../../src/lib/blocking";
+import { getHostnameFromUrl } from "../../src/lib/blocking";
 import { quotes } from "../../src/lib/data";
 import { selectNextQuote, selectQuote, updateHiddenQuoteIds } from "../../src/lib/quotes";
+import { useAppearance } from "../../src/lib/useAppearance";
+import { useDailyQuote } from "../../src/lib/useDailyQuote";
 import { useSettings } from "../../src/lib/useSettings";
+import { useToday } from "../../src/lib/useToday";
 import "../../src/styles/global.css";
-
-const variantStyles = {
-  youtube: "bg-[#0f0f0f] text-white",
-  instagram: "bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white",
-  linkedin: "bg-[#0a66c2] text-white",
-  generic: "bg-slate-950 text-white",
-};
 
 function BlockedApp() {
   const { state, setSettings } = useSettings();
   const params = new URLSearchParams(window.location.search);
   const blockedUrl = params.get("url") ?? "";
   const blockedHost = getHostnameFromUrl(blockedUrl);
-  const variant = getBlockedSiteVariant(blockedUrl);
 
-  const theme = state.status === "ready" ? state.data.theme : "dark";
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme !== "light");
-  }, [theme]);
+  const today = useToday();
+  useAppearance(state.status === "ready" ? state.data : null);
+  useDailyQuote(state.status === "ready" ? state.data : null, setSettings, today);
 
   if (state.status !== "ready") {
     return (
-      <main className="grid min-h-screen place-items-center bg-slate-950 text-white">
+      <main className="grid min-h-screen place-items-center bg-page text-ink">
         Loading focus page...
       </main>
     );
@@ -41,25 +32,14 @@ function BlockedApp() {
   const showInFuture = !settings.hiddenQuoteIds.includes(quote.id);
 
   return (
-    <main className={`min-h-screen ${variantStyles[variant]}`}>
-      <div className="min-h-screen bg-black/45 p-4 sm:p-8">
-        <header className="flex items-center justify-between gap-4 rounded-2xl bg-black/30 px-4 py-3 backdrop-blur">
+    <main className="blocked-page min-h-screen bg-page text-ink">
+      <div className="min-h-screen p-4 sm:p-8">
+        <header className="flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface/70 px-4 py-3 backdrop-blur">
           <p className="font-semibold">Wisdom focus mode</p>
-          <Button
-            onClick={() =>
-              void setSettings({
-                ...settings,
-                focusMode: { enabled: false, updatedAt: new Date().toISOString() },
-              })
-            }
-            variant="primary"
-          >
-            Disable focus mode
-          </Button>
         </header>
 
-        <section className="mx-auto mt-16 max-w-6xl rounded-3xl border border-white/10 bg-black/40 p-4 shadow-2xl backdrop-blur sm:mt-24">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-white/70">
+        <section className="mx-auto mt-16 max-w-6xl rounded-3xl border border-line bg-surface-muted/60 p-4 shadow-2xl backdrop-blur sm:mt-24">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-accent">
             {blockedHost ? `Blocked: ${blockedHost}` : "Blocked site"}
           </p>
           <QuoteCard

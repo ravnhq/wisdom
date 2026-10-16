@@ -19,6 +19,12 @@
 
 Every time you open a new tab, Wisdom shows you an inspirational quote written by real people, with a short explanation of why it matters. Turn on Focus Mode and it will silently redirect any site on your blocked list before the page even loads. Your name, theme, blocked sites, and quote preferences all stay in your browser. Nothing leaves your machine.
 
+## Architecture
+
+How the extension, the Cloudflare Worker, R2, and Pixabay fit together, with the security and cost model: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+![Wisdom architecture](docs/architecture.svg)
+
 ## Features
 
 - **New tab quotes:** a rotating set of quotes, shown randomly, each with an explanation and author
@@ -41,12 +47,17 @@ To enable blocking, click the toggle in the bottom-left corner of the new tab pa
 ## Building
 
 ```bash
-# Chrome, Edge, Brave, Arc
+# Build Chrome, Edge, Brave, Arc
 pnpm build
 
-# Firefox
+# Build Firefox
 pnpm build:firefox
+
+# Create store-ready Chrome, Firefox, and Firefox source ZIPs
+pnpm zip:all
 ```
+
+Release packaging and automatic store submission are documented in [`docs/RELEASE.md`](docs/RELEASE.md). Store privacy answers are documented in [`docs/STORE_PRIVACY.md`](docs/STORE_PRIVACY.md).
 
 ## Installing the unpacked extension
 
@@ -81,6 +92,8 @@ pnpm test
 ## Contributing
 
 Bug reports and pull requests are welcome. For significant changes, open an issue first to discuss what you'd like to change.
+
+For deeper project documentation, contribution guidelines, quote submission guidance, and pipeline details, see the [Wisdom GitHub Wiki](https://github.com/ravnhq/wisdom/wiki).
 
 ## License
 

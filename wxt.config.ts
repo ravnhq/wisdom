@@ -1,33 +1,47 @@
+import { readFileSync } from "node:fs";
 import tailwindcss from "@tailwindcss/vite";
+import { loadEnv } from "vite";
 import { defineConfig } from "wxt";
+
+const packageJson = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url), "utf8"),
+) as {
+  version: string;
+};
+
+const DEFAULT_API_URL = "https://wisdom-api.raul-h-penate.workers.dev";
+
+function apiOrigin(mode: string) {
+  const url = loadEnv(mode, process.cwd(), "WXT_").WXT_WALLPAPER_API_URL || DEFAULT_API_URL;
+  return `${new URL(url).origin}/*`;
+}
 
 export default defineConfig({
   manifestVersion: 3,
   modules: ["@wxt-dev/module-react"],
-  manifest: {
+  manifest: ({ mode, browser }) => ({
     icons: {
-      "128": "/logo.png",
+      "16": "/icon/16.png",
+      "32": "/icon/32.png",
+      "48": "/icon/48.png",
+      "128": "/icon/128.png",
     },
     name: "Wisdom",
     description: "A calm focus extension with inspirational new tabs and distraction blocking.",
-    version: "0.1.0",
-    permissions: ["storage", "tabs", "webNavigation"],
-    host_permissions: ["<all_urls>"],
+    version: packageJson.version,
+    permissions: ["storage", "webNavigation"],
+    host_permissions: [apiOrigin(mode)],
     chrome_url_overrides: {
       newtab: "newtab.html",
     },
-    options_ui: {
-      page: "options.html",
-      open_in_tab: true,
-    },
-    browser_specific_settings: {
-      gecko: {
-        data_collection_permissions: {
-          required: ["none"],
-        },
-      },
-    },
-  },
+    ...(browser === "firefox"
+      ? {
+          browser_specific_settings: {
+            gecko: { data_collection_permissions: { required: ["none"] } },
+          },
+        }
+      : { minimum_chrome_version: "117" }),
+  }),
   vite: () => ({
     plugins: [tailwindcss()],
   }),

@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .title { font-size: 22px; font-weight: 700; fill: #0f172a; }
+      .zh { font-size: 16px; font-weight: 700; fill: #0f172a; }
+      .h { font-size: 14px; font-weight: 700; fill: #0f172a; }
+      .t { font-size: 12.5px; fill: #334155; }
+      .s { font-size: 11.5px; fill: #64748b; }
+      .m { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; fill: #334155; }
+      .edge { stroke: #475569; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .label { font-size: 11.5px; font-weight: 600; fill: #0f172a; }
+      .chip { fill: #f1f5f9; stroke: #cbd5e1; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="30" y="46" class="title">Wisdom architecture</text>
+  <text x="30" y="70" class="t">Chrome MV3 extension, Cloudflare Worker on the free plan, R2, Pixabay. Nothing personal leaves the browser.</text>
+
+  <!-- Extension -->
+  <rect x="30" y="100" width="400" height="600" rx="16" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+  <circle cx="62" cy="130" r="13" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+  <circle cx="62" cy="130" r="5" fill="#4f46e5"/>
+  <text x="86" y="128" class="zh">Chrome extension (MV3)</text>
+  <text x="86" y="146" class="s">storage · webNavigation · API host only</text>
+
+  <rect x="50" y="166" width="360" height="94" rx="10" class="box"/>
+  <text x="64" y="188" class="h">New tab</text>
+  <text x="64" y="207" class="t">Quote of the day, rotates at local midnight</text>
+  <text x="64" y="225" class="t">Theme-matched photo, palette menu, focus</text>
+  <text x="64" y="245" class="s">One API fetch per palette per local day</text>
+
+  <rect x="50" y="274" width="172" height="70" rx="10" class="box"/>
+  <text x="64" y="296" class="h">Blocked page</text>
+  <text x="64" y="316" class="t">Replaces blocked</text>
+  <text x="64" y="333" class="t">sites in Focus Mode</text>
+
+  <rect x="238" y="274" width="172" height="70" rx="10" class="box"/>
+  <text x="252" y="296" class="h">Options</text>
+  <text x="252" y="316" class="t">Name, theme,</text>
+  <text x="252" y="333" class="t">blocked sites, quotes</text>
+
+  <rect x="50" y="358" width="360" height="72" rx="10" class="box"/>
+  <text x="64" y="380" class="h">Background service worker</text>
+  <text x="64" y="399" class="t">onBeforeNavigate → redirect to blocked page</text>
+  <text x="64" y="418" class="s">Only acts while Focus Mode is on</text>
+
+  <rect x="50" y="444" width="360" height="110" rx="10" class="box"/>
+  <rect x="64" y="460" width="22" height="26" rx="3" fill="#e0e7ff" stroke="#4f46e5"/>
+  <path d="M69 468 H81 M69 473 H81 M69 478 H77" stroke="#4f46e5" stroke-width="1.6"/>
+  <text x="98" y="478" class="h">On-device storage</text>
+  <text x="64" y="503" class="m">chrome.storage.local</text>
+  <text x="64" y="520" class="t">Name, focus, blocked sites, quote, theme</text>
+  <text x="64" y="539" class="m">localStorage</text>
+  <text x="170" y="539" class="t">colors, today's photo credit</text>
+
+  <rect x="50" y="568" width="360" height="114" rx="10" class="box"/>
+  <text x="64" y="590" class="h">Fail-safe</text>
+  <text x="64" y="610" class="t">API down, slow (over 3 s) or limited →</text>
+  <text x="64" y="628" class="t">bundled wallpaper. Quotes are bundled,</text>
+  <text x="64" y="646" class="t">so the extension works offline.</text>
+  <text x="64" y="668" class="s">Responses validated with Zod, https://pixabay.com links only</text>
+
+  <!-- Store -->
+  <rect x="30" y="750" width="400" height="84" rx="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="50" y="778" class="h">Chrome Web Store</text>
+  <text x="50" y="798" class="t">Zip from release.yml or manual upload</text>
+  <text x="50" y="818" class="s">CI: Biome, tests, CodeQL, Dependabot</text>
+  <path class="edge" d="M230 750 L 230 704"/>
+  <text x="240" y="732" class="label">install / update</text>
+
+  <!-- Extension to Worker -->
+  <path class="edge" d="M410 200 L 556 200"/>
+  <text x="495" y="190" class="label" text-anchor="middle">palette + local day</text>
+  <path class="edge" d="M560 236 L 414 236"/>
+  <text x="495" y="254" class="label" text-anchor="middle">photo + credit</text>
+
+  <!-- Cloudflare -->
+  <rect x="560" y="100" width="450" height="700" rx="16" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <path d="M586 140 a9 9 0 0 1 3 -17 a11 11 0 0 1 20 3 a7 7 0 0 1 2 14 z" fill="#fdba74" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="622" y="128" class="zh">Cloudflare Worker · wisdom-api</text>
+  <text x="622" y="146" class="s">Hono on workers.dev · free plan, hard cap, never bills</text>
+
+  <rect x="580" y="166" width="410" height="150" rx="10" class="box"/>
+  <text x="594" y="188" class="h">Request pipeline</text>
+  <rect x="594" y="198" width="86" height="22" rx="11" class="chip"/><text x="604" y="213" class="m">request-id</text>
+  <rect x="688" y="198" width="74" height="22" rx="11" class="chip"/><text x="698" y="213" class="m">headers</text>
+  <rect x="770" y="198" width="52" height="22" rx="11" class="chip"/><text x="780" y="213" class="m">CORS</text>
+  <rect x="830" y="198" width="88" height="22" rx="11" fill="#fee2e2" stroke="#f87171"/><text x="840" y="213" class="m">rate limit</text>
+  <text x="594" y="242" class="m">GET /image/metadata?palette=&amp;day=</text>
+  <text x="594" y="260" class="m">GET /image?palette=&amp;day=</text>
+  <text x="594" y="278" class="m">GET /health</text>
+  <text x="594" y="302" class="s">day must be yesterday, today or tomorrow (UTC), else 400</text>
+
+  <path class="edge" d="M680 316 L 680 354"/>
+  <text x="690" y="340" class="label">read</text>
+
+  <rect x="580" y="358" width="410" height="120" rx="10" class="box"/>
+  <ellipse cx="616" cy="384" rx="20" ry="7" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <path d="M596 384 V412 A20 7 0 0 0 636 412 V384" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <path d="M596 398 A20 7 0 0 0 636 398" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="652" y="384" class="h">R2 · wisdom-images-prod</text>
+  <text x="652" y="403" class="m">daily-image/&lt;day&gt;/&lt;palette&gt;</text>
+  <text x="652" y="422" class="t">Private, at most 27 objects (3 days × 9)</text>
+  <text x="594" y="446" class="t">Dated objects are immutable, browsers cache them 2 days</text>
+  <text x="594" y="465" class="s">Falls back to today or yesterday only while a day is missing</text>
+
+  <rect x="580" y="520" width="200" height="98" rx="10" class="box"/>
+  <rect x="594" y="534" width="20" height="24" rx="3" fill="#e2e8f0" stroke="#475569"/>
+  <path d="M598 541 H610 M598 546 H610 M598 551 H606" stroke="#475569" stroke-width="1.5"/>
+  <text x="622" y="552" class="h">Workers Logs</text>
+  <text x="594" y="578" class="t">JSON per event: request id,</text>
+  <text x="594" y="595" class="t">palette, day, failing stage</text>
+  <text x="594" y="610" class="s">No IPs, invocation logs off</text>
+
+  <rect x="790" y="520" width="200" height="98" rx="10" class="box"/>
+  <circle cx="814" cy="546" r="11" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <path d="M814 539 V546 H820" stroke="#16a34a" stroke-width="1.8" fill="none"/>
+  <text x="834" y="552" class="h">Cron */15 min</text>
+  <text x="804" y="578" class="t">Fill missing today and</text>
+  <text x="804" y="595" class="t">tomorrow × 9 palettes</text>
+  <text x="804" y="610" class="s">Idempotent, deletes old days</text>
+  <path class="edge" d="M890 520 L 890 482"/>
+  <text x="900" y="506" class="label">write · delete</text>
+
+  <rect x="580" y="632" width="200" height="98" rx="10" class="box"/>
+  <path d="M606 640 L619 664 H593 Z" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <path d="M606 649 V656" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="628" y="660" class="h">Sentry (free)</text>
+  <text x="594" y="688" class="t">Warnings, errors, and a</text>
+  <text x="594" y="705" class="t">cron monitor for missed runs</text>
+  <text x="594" y="720" class="s">No headers, cookies, IPs</text>
+
+  <rect x="790" y="632" width="200" height="98" rx="10" class="box"/>
+  <circle cx="814" cy="658" r="11" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <path d="M814 651 V658 L819 661" stroke="#dc2626" stroke-width="1.8" fill="none"/>
+  <text x="834" y="664" class="h">Rate limiting</text>
+  <text x="804" y="688" class="t">60/min per IPv4 or /64</text>
+  <text x="804" y="705" class="t">Best effort, per location</text>
+  <text x="804" y="720" class="s">Backstop: free-plan daily cap</text>
+
+  <text x="580" y="760" class="s">The pipeline writes to Logs and Sentry on every request and cron run.</text>
+  <text x="580" y="778" class="s">Secrets: PIXABAY_API_KEY, optional SENTRY_DSN. No write endpoints.</text>
+
+  <!-- Pixabay -->
+  <rect x="1110" y="430" width="260" height="210" rx="16" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+  <rect x="1130" y="450" width="30" height="21" rx="4" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <circle cx="1145" cy="461" r="6" fill="#fff" stroke="#059669" stroke-width="1.5"/>
+  <text x="1172" y="466" class="zh">Pixabay</text>
+  <rect x="1126" y="484" width="228" height="68" rx="10" class="box"/>
+  <text x="1140" y="505" class="h">Search API</text>
+  <text x="1140" y="523" class="m">colors=&lt;color&gt;</text>
+  <text x="1140" y="541" class="s">~9 calls a day, User-Agent set</text>
+  <rect x="1126" y="562" width="228" height="62" rx="10" class="box"/>
+  <text x="1140" y="583" class="h">Image CDN</text>
+  <text x="1140" y="603" class="s">Download, retry 429/5xx with jitter</text>
+
+  <path class="edge" d="M990 548 C 1046 548, 1070 518, 1122 518"/>
+  <text x="1052" y="506" class="label" text-anchor="middle">search</text>
+  <path class="edge" d="M990 590 C 1050 590, 1066 594, 1122 594"/>
+  <text x="1060" y="612" class="label" text-anchor="middle">download</text>
+
+  <!-- Upgrade -->
+  <rect x="1110" y="166" width="260" height="150" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="1130" y="194" class="h">Optional upgrade, ~$10/yr</text>
+  <text x="1130" y="218" class="t">Custom domain unlocks a free</text>
+  <text x="1130" y="236" class="t">WAF rate-limit rule that blocks</text>
+  <text x="1130" y="254" class="t">floods before the Worker runs,</text>
+  <text x="1130" y="272" class="t">plus edge caching.</text>
+  <text x="1130" y="298" class="s">Only change that adds cost.</text>
+
+  <text x="30" y="872" class="s">Abuse model: allow-listed inputs, private bucket, no write endpoints. Worst case is free-plan quota exhaustion, which falls back to the bundled wallpaper and never bills.</text>
+</svg>
